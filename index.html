@@ -569,7 +569,7 @@
                                 <tr class="hover:bg-slate-900/30 transition-colors">
                                     <td class="py-2.5 font-bold">類別 6 其他來源之間接排放</td>
                                     <td class="py-2.5 text-center text-slate-600">➔</td>
-                                    <td class="py-2.5 text-slate-400">各企業視情況自行定義</td>
+                                    <td class="py-2.5 text-slate-400"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1188,10 +1188,10 @@
             }
         }
 
-        // 1. 比較-6.png 懸浮高亮互動對照關聯
+        // 1. 比較-6.png 懸浮高亮互動對照關聯（已修正：類別 1 屬於 Scope 1、類別 2 屬於 Scope 2，不觸發 Scope 3 高亮）
         const comparisonMapping = {
-            iso1: [1],
-            iso2: [2],
+            iso1: [],
+            iso2: [],
             iso3: [4, 6, 7, 9],
             iso4: [1, 2, 3, 5, 8],
             iso5: [10, 11, 12, 13, 14, 15],
