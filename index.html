@@ -594,75 +594,28 @@
     </section>
 
     <section id="faq" class="py-24 bg-slate-100 scroll-mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <!-- 左側：常見問答 FAQ -->
-                <div class="lg:col-span-7">
-                    <div class="mb-10">
-                        <span class="text-sm font-bold text-forest-800 uppercase tracking-widest block mb-2">Q&A FAQ</span>
-                        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
-                            指引常見問答與實務 Q&A
-                        </h2>
-                        <p class="text-slate-600">
-                            精選金管會最新第二版《範疇3溫室氣體盤查作業指引與問答集》中最具爭議、詢問度最高的盤查實務與查驗問答。
-                        </p>
-                    </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <span class="text-sm font-bold text-forest-800 uppercase tracking-widest block mb-2">Q&A FAQ</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    指引常見問答與實務 Q&A
+                </h2>
+                <p class="text-slate-600">
+                    精選金管會最新第二版《範疇3溫室氣體盤查作業指引與問答集》中最具爭議、詢問度最高的盤查實務與查驗問答。
+                </p>
+            </div>
 
-                    <!-- 搜尋 FAQ -->
-                    <div class="relative mb-6">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </span>
-                        <input type="text" id="faq-search" oninput="searchFaq()" placeholder="搜尋關鍵字（例如：重複計算、投資、海外係數）..." class="w-full bg-white border border-slate-200 pl-11 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 transition-all">
-                    </div>
+            <!-- 搜尋 FAQ -->
+            <div class="relative mb-6">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="faq-search" oninput="searchFaq()" placeholder="搜尋關鍵字（例如：重複計算、投資、海外係數）..." class="w-full bg-white border border-slate-200 pl-11 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 transition-all">
+            </div>
 
-                    <!-- FAQ 手風琴 -->
-                    <div class="space-y-4" id="faq-container">
-                        <!-- FAQ 項目將透過 JavaScript 動態載入 -->
-                    </div>
-                </div>
-
-                <!-- 右側：AI 永續合規小助手 (內建強大本地永續大腦，免 API 金鑰即可使用) -->
-                <div class="lg:col-span-5 bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden sticky top-24">
-                    <div class="bg-gradient-to-r from-forest-800 to-ocean-900 text-white p-6">
-                        <div class="flex items-center space-x-3">
-                            <div class="bg-aurora-400 text-slate-950 p-2.5 rounded-xl">
-                                <i class="fa-solid fa-robot text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">穩碳 AI 永續合規小助手</h3>
-                                <p class="text-xs text-emerald-200">由 穩碳管理顧問 提供專業法規對策</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="ai-chat-box" class="h-80 overflow-y-auto p-4 space-y-4 bg-slate-50 custom-scrollbar text-sm">
-                        <!-- 預設歡迎訊息 -->
-                        <div class="flex items-start space-x-2.5">
-                            <div class="bg-forest-800 text-white p-2 rounded-lg shrink-0 mt-0.5">
-                                <i class="fa-solid fa-robot text-xs"></i>
-                            </div>
-                            <div class="bg-white border border-slate-100 p-3.5 rounded-2xl shadow-sm text-slate-700 max-w-[85%]">
-                                <p class="font-semibold text-slate-900 mb-1">您好！我是您的永續管理與查驗確信 AI 助手。</p>
-                                <p>歡迎詢問關於 ISO 14064-1 轉換至 GHG Protocol，或 15 大範疇三類別盤查量化的實務問題。您可以直接輸入如：<strong>「重複計算如何避免」</strong>、<strong>「如何定義Category 15」</strong>等！</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-4 border-t border-slate-100 bg-white">
-                        <div class="flex space-x-2">
-                            <input type="text" id="ai-user-input" onkeydown="handleChatKey(event)" placeholder="請輸入您的永續合規或轉換疑問..." class="flex-1 bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm">
-                            <button onclick="sendChatMessage()" class="bg-forest-800 hover:bg-forest-900 text-white px-4 py-2.5 rounded-xl font-bold transition-all shadow-md">
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                        </div>
-                        <div class="mt-2 text-[10px] text-slate-400 text-center">
-                            <span>基於最新金管會 2025 年第二版規範指引模型</span>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- FAQ 手風琴 -->
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ 項目將透過 JavaScript 動態載入 -->
             </div>
         </div>
     </section>
@@ -1530,7 +1483,7 @@
             const formMsg = document.getElementById('form-message');
             formMsg.value = `您好，我代表我們公司諮詢「${type}」服務。希望了解符合金管會 2025 年第二版指引的顧問輔導、查驗前置審核與實戰訓練預約事宜。`;
             
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            scrollToSection('contact');
         }
 
         // 5. 填寫送出諮詢：自動生成 網頁版 Gmail、原生 Mail 兩大協定與一鍵複製
