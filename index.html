@@ -110,10 +110,11 @@
                     </div>
                 </div>
                 
-                <!-- 桌上型選單 - 更改為 js 呼叫，確保在沙盒中跳轉流暢 -->
+                <!-- 桌上型選單 -->
                 <nav class="hidden md:flex space-x-1 lg:space-x-4">
                     <button onclick="scrollToSection('hero')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">講義首頁</button>
-                    <button onclick="scrollToSection('matrix')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">ISO轉GHG對照</button>
+                    <button onclick="scrollToSection('standard-comparison')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">標準分類對照</button>
+                    <button onclick="scrollToSection('matrix')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">轉換對策矩陣</button>
                     <button onclick="scrollToSection('explorer')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">15大範疇三導覽</button>
                     <button onclick="scrollToSection('courses')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">六堂實戰課</button>
                     <button onclick="scrollToSection('faq')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">指引常見 Q&A</button>
@@ -132,7 +133,8 @@
         <!-- 手機選單下拉 -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-inner">
             <button onclick="scrollToSection('hero')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">講義首頁</button>
-            <button onclick="scrollToSection('matrix')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">ISO轉GHG對照</button>
+            <button onclick="scrollToSection('standard-comparison')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">標準分類對照</button>
+            <button onclick="scrollToSection('matrix')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">轉換對策矩陣</button>
             <button onclick="scrollToSection('explorer')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">15大範疇三導覽</button>
             <button onclick="scrollToSection('courses')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">六堂實戰課</button>
             <button onclick="scrollToSection('faq')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">指引常見 Q&A</button>
@@ -165,7 +167,7 @@
                         溫室氣體盤查標準
                     </h1>
 
-                    <!-- 轉換過渡標題 (由 ISO 14064-1 轉為 GHG Protocol) -->
+                    <!-- 轉換過渡標題 -->
                     <div class="flex flex-wrap items-center gap-3 sm:gap-4 py-2">
                         <span class="text-slate-500 font-semibold text-sm sm:text-lg">由</span>
                         <span class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-wide border-b-4 border-slate-300 pb-1">ISO 14064-1</span>
@@ -195,13 +197,13 @@
                         <button onclick="scrollToSection('courses')" class="text-center bg-forest-800 hover:bg-forest-900 text-white font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-forest-800/20 hover:shadow-forest-800/30 transition-all transform hover:-translate-y-0.5 text-base">
                             <i class="fa-solid fa-graduation-cap mr-2"></i>瀏覽完整六堂實戰課
                         </button>
-                        <button onclick="scrollToSection('matrix')" class="text-center bg-white hover:bg-slate-50 border-2 border-slate-300 text-slate-700 font-bold px-8 py-4 rounded-xl transition-all text-base">
+                        <button onclick="scrollToSection('standard-comparison')" class="text-center bg-white hover:bg-slate-50 border-2 border-slate-300 text-slate-700 font-bold px-8 py-4 rounded-xl transition-all text-base">
                             <i class="fa-solid fa-circle-question mr-2"></i>免費對照與對策
                         </button>
                     </div>
                 </div>
 
-                <!-- 右側：發光高科技地球模型 (擬真還原《封面.png》) -->
+                <!-- 右側：發光高科技地球模型 -->
                 <div class="lg:col-span-5 flex justify-center items-center py-8 relative">
                     <div class="relative w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] floating-globe">
                         <!-- 外圍環繞軌道 -->
@@ -277,7 +279,7 @@
             <!-- 四大亮點橫列 (對齊封面底部圖示) -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto mt-16 relative z-10">
                 
-                <button onclick="scrollToSection('matrix')" class="bg-white hover:bg-forest-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <button onclick="scrollToSection('standard-comparison')" class="bg-white hover:bg-forest-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-full border border-forest-600/30 flex items-center justify-center mb-3 group-hover:bg-forest-800 group-hover:text-white transition-all text-forest-800">
                         <i class="fa-solid fa-file-invoice text-lg"></i>
                     </div>
@@ -335,7 +337,7 @@
                     溫室氣體盤查標準分類對照
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base">
-                    呈現從 ISO 14064-1:2018 到 GHG Protocol 的排放分類架構。將滑鼠滑過中欄 ISO 14064-1 類別，右側相對應的 GHG Protocol 範疇三 15 大類別將會自動發光發亮。
+                    依據金管會指引附錄一，呈現從 ISO 14064-1:2018 到 GHG Protocol 的排放分類架構。將滑鼠滑過中欄 ISO 14064-1 類別，右側相對應的 GHG Protocol 範疇三類別將會自動聯動發光。
                 </p>
             </div>
 
@@ -470,7 +472,7 @@
                         
                         <!-- 上游活動 -->
                         <div class="mb-4">
-                            <span class="inline-block text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full mb-2">上游活動</span>
+                            <span class="inline-block text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full mb-2">上游活動 (Cat. 1 - 8)</span>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px]">
                                 <div id="ghg-cat-1" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 1: 採購產品與服務</div>
                                 <div id="ghg-cat-2" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 2: 資本財</div>
@@ -485,7 +487,7 @@
 
                         <!-- 下游活動 -->
                         <div>
-                            <span class="inline-block text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full mb-2">下游活動</span>
+                            <span class="inline-block text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full mb-2">下游活動 (Cat. 9 - 15)</span>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px]">
                                 <div id="ghg-cat-9" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 9: 下游運輸與配送</div>
                                 <div id="ghg-cat-10" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 10: 銷售產品加工</div>
@@ -569,7 +571,7 @@
                                 <tr class="hover:bg-slate-900/30 transition-colors">
                                     <td class="py-2.5 font-bold">類別 6 其他來源之間接排放</td>
                                     <td class="py-2.5 text-center text-slate-600">➔</td>
-                                    <td class="py-2.5 text-slate-400"></td>
+                                    <td class="py-2.5 text-slate-400">（無直接對應範疇三項目）</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -615,6 +617,7 @@
         </div>
     </section>
 
+    <!-- 轉換對策矩陣 -->
     <section id="matrix" class="py-24 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -681,6 +684,7 @@
         </div>
     </section>
 
+    <!-- 15大範疇三導覽 -->
     <section id="explorer" class="py-24 bg-slate-100 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -693,24 +697,24 @@
                 </p>
             </div>
 
-            <!-- 產業速查與篩選 -->
+            <!-- 產業速查與篩選 (對齊附錄一) -->
             <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 mb-8">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center space-x-3 w-full md:w-auto">
-                        <span class="text-slate-500 font-medium whitespace-nowrap"><i class="fa-solid fa-filter mr-1"></i> 產業指引重要性速查：</span>
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+                    <div class="flex items-center space-x-3 w-full lg:w-auto">
+                        <span class="text-slate-500 font-semibold whitespace-nowrap"><i class="fa-solid fa-filter mr-1"></i> 產業指引主要類別篩選：</span>
                         <select id="industry-select" onchange="filterIndustryCriticality()" class="w-full md:w-64 bg-slate-50 border border-slate-200 text-slate-800 font-semibold px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 transition-all">
                             <option value="none">請選擇您的產業...</option>
-                            <option value="semi">半導體業 / 電子電機製造</option>
+                            <option value="semi">電子電機製造業</option>
                             <option value="fin">金融服務業</option>
-                            <option value="steel">鋼鐵業 / 金屬加工</option>
-                            <option value="chem">化學產業</option>
-                            <option value="const">營建業 / 建築開發</option>
-                            <option value="transport">運輸服務業 / 物流</option>
-                            <option value="retail">貿易百貨業 / 零售</option>
+                            <option value="steel">鋼鐵業</option>
+                            <option value="chem">化學業</option>
+                            <option value="const">營建業</option>
+                            <option value="transport">運輸服務業</option>
+                            <option value="retail">食品飲料業</option>
                         </select>
                     </div>
-                    <div id="industry-crit-tag" class="hidden text-sm bg-emerald-50 border border-emerald-200 text-emerald-800 font-medium px-4 py-2 rounded-xl flex items-center">
-                        <!-- 動態產業標籤 -->
+                    <div id="industry-crit-tag" class="hidden text-xs sm:text-sm bg-emerald-50 border border-emerald-200 text-emerald-800 font-medium px-4 py-3 rounded-xl flex items-center w-full lg:w-3/4">
+                        <!-- 動態產業主要類別說明 -->
                     </div>
                 </div>
             </div>
@@ -732,6 +736,7 @@
         </div>
     </section>
 
+    <!-- 六堂實戰課 -->
     <section id="courses" class="py-24 bg-white relative scroll-mt-20">
         <div class="absolute top-1/2 left-0 right-0 h-96 bg-slate-50 -skew-y-3 z-0"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -771,7 +776,7 @@
                     <div>
                         <div class="flex justify-between items-center mb-4">
                             <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full">第 2 堂課 (3小時)</span>
-                            <span class="text-forest-800 font-extrabold text-xs">邊界邊界</span>
+                            <span class="text-forest-800 font-extrabold text-xs">邊界設定</span>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3">組織邊界與營運邊界設定</h3>
                         <p class="text-sm text-slate-600 mb-4 line-clamp-3">學習權益份額法與控制法的選擇技巧，以及財務控制與營運控制的判定實務。詳細對照地點與市場基礎法之範疇二報導要求。</p>
@@ -882,6 +887,7 @@
         </div>
     </section>
 
+    <!-- FAQ問答 -->
     <section id="faq" class="py-24 bg-slate-100 scroll-mt-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10 text-center">
@@ -909,6 +915,7 @@
         </div>
     </section>
 
+    <!-- 聯絡與詢問 -->
     <section id="contact" class="py-24 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1188,7 +1195,7 @@
             }
         }
 
-        // 1. 比較-6.png 懸浮高亮互動對照關聯（已修正：類別 1 屬於 Scope 1、類別 2 屬於 Scope 2，不觸發 Scope 3 高亮）
+        // 比較-6.png 懸浮高亮互動對照關聯 (類別 1 屬於 Scope 1、類別 2 屬於 Scope 2)
         const comparisonMapping = {
             iso1: [],
             iso2: [],
@@ -1218,7 +1225,7 @@
             }
         }
 
-        // 2. ISO 14064-1 轉 GHG Protocol 對照對策數據
+        // ISO 14064-1 轉 GHG Protocol 對照對策數據
         const isoMatrixData = {
             cat1: {
                 title: "類別一：直接溫室氣體排放與移除",
@@ -1312,7 +1319,7 @@
             document.getElementById('matrix-result').innerHTML = html;
         }
 
-        // 3. 15 大範疇三類別基本資訊
+        // 15 大範疇三類別基本資訊 (Criticality 完全依據指引附錄一之主要類別精準定義)
         const scope3Categories = [
             {
                 id: 1,
@@ -1321,7 +1328,7 @@
                 desc: "公司於報導年度內購買或取得之商品及服務的上游開採、生產及運輸（排除 Cat 2 - 8 已單獨提報的項目）。",
                 boundary: "購買商品（中間產品或原料）及勞務的所有上游（從搖籃到大門）排放。",
                 formula: "∑ ( 購買商品重量/數量 x 該商品/材料之從搖籃到大門排放係數 )",
-                criticality: { semi: "關鍵核心（大宗材料、矽晶圓、化學氣體）", fin: "中度相關", steel: "中度相關（鐵礦原料上游）", chem: "關鍵核心（化學原料提煉）", const: "營建大熱點（水泥/鋼筋原料上游）", transport: "高度相關（車具生產上游）", retail: "關鍵大熱點（採購成衣/日用商品生產）" }
+                criticality: { semi: true, fin: false, steel: true, chem: true, const: true, transport: true, retail: true }
             },
             {
                 id: 2,
@@ -1330,16 +1337,16 @@
                 desc: "報導公司在報導年度內購買或獲得之資本化固定資產的上游（從搖籃到大門）排放（不折舊攤提，一次性記入）。",
                 boundary: "所購買固定資產（如新建廠房、機械、大型伺服器、車輛）從搖籃到大門的所有上游排放。",
                 formula: "∑ ( 購買之資本財數量 x 固定資產製造排放係數 )",
-                criticality: { semi: "極高（半導體超大型設備投資）", fin: "低度相關", steel: "中度相關", chem: "中度相關", const: "高度相關（重型施工機具採購）", transport: "低度相關", retail: "中度相關（新開分店門市資產）" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: true, transport: false, retail: false }
             },
             {
                 id: 3,
                 tab: "upstream",
-                title: "Cat 3: 能源上游活動(未含範疇1/2)",
+                title: "Cat 3: 燃料與能源相關活動(未含範疇1/2)",
                 desc: "消耗燃料與電力之上游開採、生產與電網線路傳輸耗損（T&D Loss）等不包含在範疇一與二內的排放。",
                 boundary: "自用燃料開採與運輸、發電用燃料上游開採與運輸、輸配電損耗（由終端用戶報告）。",
                 formula: "∑ ( 電力度數 x 輸配線損率 % x 電力發電生命週期排放係數 )",
-                criticality: { semi: "高（超高用電量之線損與燃料上游）", fin: "低度相關", steel: "高（鋼鐵高耗能燃料上游）", chem: "高度相關", const: "低度相關", transport: "中度相關", retail: "中度相關" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: true, retail: false }
             },
             {
                 id: 4,
@@ -1348,7 +1355,7 @@
                 desc: "購買產品在報導公司一階供應商與自營運據點間的運輸，或報導公司付費採購之進貨、出貨與自有據點間的第三方物流運輸與配送。",
                 boundary: "第三方運輸供應商在提供空運、海運、陸運、倉儲服務期間產生的範疇一和二排放。",
                 formula: "∑ ( 貨物運輸重量 in tonnes x 運輸距離 in km x 該載具之延噸公里排放係數 )",
-                criticality: { semi: "高度相關（精密晶片跨國空運）", fin: "低度相關", steel: "中度相關", chem: "高度相關", const: "中度相關（建材配送）", transport: "高（主營業務核心）", retail: "關鍵大熱點（跨國與本島物流）" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 5,
@@ -1357,7 +1364,7 @@
                 desc: "營運過程中所產生之固體廢棄物與廢水，經第三方廠商處置與處理（掩埋、焚化、回收）所造成的排放。",
                 boundary: "廢棄物處置廠商在處理固體廢水期間發生的排放（排除自有處置設施）。",
                 formula: "∑ ( 各類廢棄物產出量 x 對應處理方式之排放係數 )",
-                criticality: { semi: "高度相關（特定工業化學廢棄物/廢水）", fin: "低度相關", steel: "中度相關", chem: "高度相關", const: "關鍵核心（大量營建廢棄物處置）", transport: "低度相關", retail: "中度相關（包裝廢棄物）" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 6,
@@ -1366,7 +1373,7 @@
                 desc: "員工因公差旅搭乘非公司控制之第三方客運工具（飛機、高鐵、租車、客運等）及飯店住宿產生的排放。",
                 boundary: "客運載具運行期間之排放（若納入住宿，計入飯店之能源排放）。",
                 formula: "∑ ( 差旅搭乘載具之乘人公里 x 交通工具乘人公里排放係數 )",
-                criticality: { semi: "中度相關（跨國差旅頻繁）", fin: "關鍵大熱點（高密度的客戶拜訪差旅）", steel: "低度相關", chem: "低度相關", const: "低度相關", transport: "低度相關", retail: "中度相關" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 7,
@@ -1375,7 +1382,7 @@
                 desc: "員工每日往返住家與工作地點之間的通勤排放，亦可包括遠端工作（Home Office）能源消耗（可選）。",
                 boundary: "員工通勤搭乘大眾運輸、開車或騎車之範疇一與二排放。",
                 formula: "∑ ( 員工總數 x 調查之通勤載具每日里程 x 工作天數 x 通勤排放係數 )",
-                criticality: { semi: "中度相關（大量員工上下班）", fin: "高度相關", steel: "低度相關", chem: "低度相關", const: "低度相關", transport: "低度相關", retail: "高度相關" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 8,
@@ -1384,7 +1391,7 @@
                 desc: "向其他主體租賃之尚未計入範疇一或二的資產營運排放。通常適用承租戶（如承租辦公室、機具、車輛）。",
                 boundary: "租賃資產租期內自用燃料與電力引起的範疇一和二排放。",
                 formula: "∑ ( 租賃面積 / 總面積 x 租賃建物之總耗能 x 排放係數 )",
-                criticality: { semi: "低度相關", fin: "中度相關（大量租用之分行/據點）", steel: "低度相關", chem: "低度相關", const: "度相關（租用工程機具）", transport: "高度相關", retail: "高度相關" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 9,
@@ -1393,7 +1400,7 @@
                 desc: "由公司售出之產品在離開銷售點到終端客戶間的運輸。前提是費用非公司負擔且非公司所擁有之運具。",
                 boundary: "下游第三方承運商、批發商和零售商在使用車輛和倉庫期間產生的排放。",
                 formula: "∑ ( 產品銷售重量 x 下游配送距離 x 運輸載具延噸公里排放係數 )",
-                criticality: { semi: "高度相關", fin: "低度相關", steel: "中度相關", chem: "中度相關", const: "低度相關", transport: "低度相關", retail: "關鍵大熱點（售出至終端消費者物流）" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 10,
@@ -1402,7 +1409,7 @@
                 desc: "由第三方客戶對公司已銷售之中間產品（如塑料原料、半導體晶片、鋼板）進行後續加工所造成的排放。",
                 boundary: "下游加工客戶在轉換、封裝或組裝中間產品時產生的範疇一和二排放。",
                 formula: "∑ ( 出售之中間產品數量 x 下游加工階段之平均行業排放係數 )",
-                criticality: { semi: "中度相關（晶片下游封裝與組裝）", fin: "低度相關", steel: "高（鋼材下游加工製造）", chem: "關鍵核心（塑膠原料下游射出成型）", const: "低度相關", transport: "低度相關", retail: "低度相關" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 11,
@@ -1411,7 +1418,7 @@
                 desc: "終端用戶在使用公司產品期間因消耗能源或本身含有溫室氣體釋放所產生的總壽命排放量。",
                 boundary: "產品預期使用壽命內之直接排放（如燃料燃燒）或消耗電力/燃料所導致的範疇一和二排放（必須）；間接能源消耗為非必要。",
                 formula: "∑ ( 報導年售出數量 x 預期壽命 years x 每年使用之耗能 kWh/L x 發電/燃料排放係數 )",
-                criticality: { semi: "高（晶片運轉與電子產品耗能）", fin: "低度相關", steel: "中度相關", chem: "中度相關", const: "高度相關（出售建築未來十年營運能耗）", transport: "關鍵核心（汽車/船舶發動機之總生命週期燃油）", retail: "中度相關" }
+                criticality: { semi: true, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 12,
@@ -1420,7 +1427,7 @@
                 desc: "已銷售產品及包裝在使用壽命結束後進行廢棄處置與垃圾處置（如掩埋、焚化、回收）所產生的預期排放。",
                 boundary: "產品廢物回收或焚化處理期產生的排放。",
                 formula: "∑ ( 售出產品加包裝總重量 x 各報廢處理方式之行業平均廢棄排放係數 )",
-                criticality: { semi: "低度相關", fin: "低度相關", steel: "高度相關", chem: "高度相關", const: "中度相關（建物拆除報廢）", transport: "中度相關", retail: "關鍵大熱點（一次性包裝與產品報廢）" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 13,
@@ -1429,7 +1436,7 @@
                 desc: "公司（作為出租人）擁有並租賃給其他主體之資產的營運排放，尚未納入公司的範疇一和二報告者。",
                 boundary: "承租人在租賃資產內使用能源引起的排放。",
                 formula: "∑ ( 出租資產面積/數量 x 承租人實際耗電 x 排放係數 )",
-                criticality: { semi: "低度相關", fin: "低度相關", steel: "低度相關", chem: "低度相關", const: "高度相關（房屋出租人、不動產租賃）", transport: "高度相關", retail: "低度相關" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 14,
@@ -1438,7 +1445,7 @@
                 desc: "由公司授權之加盟店、連鎖經營店在營運期間所產生的排放，未納入報導公司範疇一及範疇二者。",
                 boundary: "加盟商在店鋪營運時產生的範疇一和二排放。",
                 formula: "∑ ( 加盟店數量 x 單店平均年度耗能 x 電力/燃料排放係數 )",
-                criticality: { semi: "低度相關", fin: "低度相關", steel: "低度相關", chem: "低度相關", const: "低度相關", transport: "低度相關", retail: "高度相關（如連鎖加盟門市）" }
+                criticality: { semi: false, fin: false, steel: false, chem: false, const: false, transport: false, retail: false }
             },
             {
                 id: 15,
@@ -1447,7 +1454,7 @@
                 desc: "公司（主要是投資人與金融機構）於報導年度內進行之股權、債權投資或專案融資所引致的資產組合排放。",
                 boundary: "被投資方或融資專案的範疇一及範疇二排放（按投資份額比例分配）；若顯著亦應包括被投資方的範疇三。",
                 formula: "∑ ( (投資金額 / 被投資企業之企業價值 EVIC) x 被投資公司年度 Scope 1 & 2 排放總量 )",
-                criticality: { semi: "低度相關", fin: "關鍵大熱點（PCAF 資產組合融資排放高達直接排放的 700 倍以上）", steel: "低度相關", chem: "低度相關", const: "低度相關", transport: "低度相關", retail: "低度相關" }
+                criticality: { semi: false, fin: true, steel: false, chem: false, const: false, transport: false, retail: false }
             }
         ];
 
@@ -1467,6 +1474,7 @@
             renderExplorerCards();
         }
 
+        // 動態產業主要類別說明標籤 (100% 依據指引附錄一之要求)
         function filterIndustryCriticality() {
             const select = document.getElementById('industry-select');
             currentFilterIndustry = select.value;
@@ -1476,10 +1484,35 @@
                 tag.classList.add('hidden');
             } else {
                 tag.classList.remove('hidden');
-                const selectedText = select.options[select.selectedIndex].text;
+                let desc = '';
+                switch (currentFilterIndustry) {
+                    case 'semi':
+                        desc = "<strong>電子電機製造業</strong>依指引附錄一要求，指定主要類別為：<span class='underline font-bold text-forest-800'>類別 1 (購買商品及勞務)</span> 與 <span class='underline font-bold text-forest-800'>類別 11 (已銷售產品之使用)</span>。";
+                        break;
+                    case 'fin':
+                        desc = "<strong>金融服務業</strong>依指引附錄一要求，指定主要類別為：<span class='underline font-bold text-forest-800'>類別 15 (投資)</span>。金融機構應特別注重投融資組合排放。";
+                        break;
+                    case 'steel':
+                        desc = "<strong>鋼鐵業</strong>依指引附錄一要求，指定主要類別為：<span class='underline font-bold text-forest-800'>類別 1 (購買商品及勞務)</span>。";
+                        break;
+                    case 'chem':
+                        desc = "<strong>化學業</strong>依指引附錄一要求，指定主要類別為：<span class='underline font-bold text-forest-800'>類別 1 (購買商品及勞務)</span>。";
+                        break;
+                    case 'const':
+                        desc = "<strong>營建業</strong>依指引附錄一要求，指定主要類別為：<span class='underline font-bold text-forest-800'>類別 1 (購買商品及勞務)</span> 與 <span class='underline font-bold text-forest-800'>類別 2 (資本財)</span>。";
+                        break;
+                    case 'transport':
+                        desc = "<strong>運輸服務業</strong>依指引附錄一要求，指定主要類別為：<span class='underline font-bold text-forest-800'>類別 1 (購買商品及勞務)</span> 與 <span class='underline font-bold text-forest-800'>類別 3 (燃料與能源相關活動)</span>。";
+                        break;
+                    case 'retail':
+                        desc = "<strong>食品飲料業</strong>依指引附錄一要求，指定主要類別為：<span class='underline font-bold text-forest-800'>類別 1 (購買商品及勞務)</span>。";
+                        break;
+                }
                 tag.innerHTML = `
-                    <i class="fa-solid fa-industry mr-2 text-forest-800"></i>
-                    <span>已套用 <strong>${selectedText}</strong> 的重要性指引</span>
+                    <div class="flex items-start space-x-2 text-xs sm:text-sm">
+                        <i class="fa-solid fa-circle-info mt-0.5 text-forest-800 shrink-0"></i>
+                        <span>${desc} <span class="text-[10px] text-slate-500 block mt-1">來源：金管會 2025年6月二版《範疇3溫室氣體盤查作業參考指引》附錄一</span></span>
+                    </div>
                 `;
             }
 
@@ -1495,16 +1528,13 @@
                 let criticalBadge = '';
                 let highlightClass = 'border-slate-100 bg-white';
                 
-                if (currentFilterIndustry !== 'none' && cat.criticality[currentFilterIndustry]) {
-                    const status = cat.criticality[currentFilterIndustry];
-                    if (status.includes("關鍵核心") || status.includes("關鍵大熱點")) {
-                        criticalBadge = `<span class="bg-red-50 text-red-700 border border-red-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>重要揭露熱點</span>`;
-                        highlightClass = 'border-red-200 bg-red-50/5 shadow-md shadow-red-500/2';
-                    } else if (status.includes("高度相關")) {
-                        criticalBadge = `<span class="bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-circle-exclamation mr-1"></i>高度相關</span>`;
-                        highlightClass = 'border-amber-200 bg-amber-50/5';
+                if (currentFilterIndustry !== 'none') {
+                    const isPrimary = cat.criticality[currentFilterIndustry];
+                    if (isPrimary) {
+                        criticalBadge = `<span class="bg-red-50 text-red-700 border border-red-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>指引指定主要類別</span>`;
+                        highlightClass = 'border-red-200 bg-red-50/10 shadow-md shadow-red-500/5 scale-[1.01]';
                     } else {
-                        criticalBadge = `<span class="bg-slate-50 text-slate-500 text-[10px] font-medium px-2 py-0.5 rounded-full">中低度相關</span>`;
+                        criticalBadge = `<span class="bg-slate-50 text-slate-500 text-[10px] font-medium px-2 py-0.5 rounded-full">其他範疇三類別</span>`;
                     }
                 }
 
@@ -1536,7 +1566,7 @@
         const faqData = [
             {
                 q: "如何選擇設定組織邊界的方法？",
-                a: "企業應先從盤查目的考量。若無法律特別規定，(1)權益份額法最能反映商業與經濟真實負債風險，與財務會計合併報表接軌良好；(2)營運控制法則對於收集供應鏈資料與行政成本控制最具優勢，也是台灣多數上市櫃公司首選。決定後必須一致性適用，不可混用。"
+                a: "企業應先從盤查目的考量。若無法律特別規定，(1)權益份額法最能反映商業與經濟真實負債風險，與財務會計合併報表接軌良好；(2)營運控制法則對於收集供應鏈資料與行政成本控制最具優勢，也是台灣多數上市櫃公司首選。決定後必須一貫性適用，不可混用。"
             },
             {
                 q: "針對合併報表子公司數量龐大(超過百家)的企業，如何有效進行範疇三盤查？",
@@ -1597,7 +1627,7 @@
             renderFaqs(val);
         }
 
-        // 4. 懸浮 Toast 提示系統 (完全替代 forbidden alert)
+        // 懸浮 Toast 提示系統 (完全替代原生 alert)
         function showToast(message, type = 'success') {
             let container = document.getElementById('toast-container');
             if (!container) {
@@ -1626,7 +1656,7 @@
 
         let submittedData = {};
 
-        // 5. 報名與錨點平滑滾動 UX 最佳化
+        // 報名與錨點平滑滾動 UX 最佳化
         function enrollCourse(courseNum) {
             const formService = document.getElementById('form-service');
             const formMsg = document.getElementById('form-message');
@@ -1644,7 +1674,7 @@
             scrollToSection('contact');
         }
 
-        // 6. 填寫送出諮詢：自動生成 網頁版 Gmail、原生 Mail 兩大協定與一鍵複製
+        // 填寫送出諮詢：自動生成 網頁版 Gmail、原生 Mail 兩大協定與一鍵複製
         function submitInquiry(event) {
             event.preventDefault();
             
@@ -1703,7 +1733,7 @@ ${message || '無特定備註說明'}
             document.getElementById('inquiry-form').reset();
         }
 
-        // 高反饋手動複製函數 (物理式按鈕狀態點擊改變，提升 UX)
+        // 高反饋手動複製函數
         function copyFeedbackText(textToCopy, buttonElement) {
             const originalHTML = buttonElement.innerHTML;
             
