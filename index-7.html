@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>穩碳管理顧問有限公司 - 溫室氣體盤查標準轉換輔導與培訓</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            50: '#f2f8f6',
+                            100: '#e1edea',
+                            600: '#2c6e5e',
+                            700: '#1b5247',
+                            800: '#164e3f', /* 圖片標題主色：深松針綠 */
+                            900: '#0d2e25',
+                            950: '#061a15',
+                        },
+                        ocean: {
+                            900: '#0a2a3a', /* 圖片底色：夜幕深藍 */
+                            950: '#061c28',
+                        },
+                        aurora: {
+                            400: '#4ade80', /* 發光極光綠 */
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* 地球旋轉與光暈軌道動畫 */
+        @keyframes orbit {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(74, 222, 128, 0.4)); }
+            50% { filter: drop-shadow(0 0 30px rgba(74, 222, 128, 0.7)); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .orbit-container {
+            animation: orbit 40s linear infinite;
+        }
+        .orbit-item {
+            animation: orbit 40s linear infinite reverse;
+        }
+        .floating-globe {
+            animation: float 8s ease-in-out infinite, pulse-glow 4s ease-in-out infinite;
+        }
+        .transition-gradient-bar {
+            background: linear-gradient(90deg, #164e3f 0%, #0a2a3a 100%);
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed scroll-smooth">
+
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="scrollToSection('hero')">
+                    <div class="bg-gradient-to-tr from-forest-800 to-aurora-400 text-white p-2.5 rounded-xl shadow-md">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-lg font-black text-forest-900 tracking-tight block leading-none">穩碳管理顧問</span>
+                        <span class="text-[10px] font-bold text-forest-600 block tracking-widest uppercase mt-1">STABLE CARBON CONSULTING</span>
+                    </div>
+                </div>
+                
+                <!-- 桌上型選單 -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-4">
+                    <button onclick="scrollToSection('hero')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">講義首頁</button>
+                    <button onclick="scrollToSection('standard-comparison')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">標準分類對照</button>
+                    <button onclick="scrollToSection('matrix')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">轉換對策矩陣</button>
+                    <button onclick="scrollToSection('explorer')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">15大範疇三導覽</button>
+                    <button onclick="scrollToSection('courses')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">六堂實戰課</button>
+                    <button onclick="scrollToSection('faq')" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-forest-800 transition-colors">指引常見 Q&A</button>
+                    <button onclick="scrollToSection('contact')" class="bg-forest-800 hover:bg-forest-900 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-forest-800/10 hover:shadow-forest-800/20 transition-all transform hover:-translate-y-0.5">聯絡與詢問</button>
+                </nav>
+
+                <!-- 手機選單按鈕 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-forest-800 p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機選單下拉 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-inner">
+            <button onclick="scrollToSection('hero')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">講義首頁</button>
+            <button onclick="scrollToSection('standard-comparison')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">標準分類對照</button>
+            <button onclick="scrollToSection('matrix')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">轉換對策矩陣</button>
+            <button onclick="scrollToSection('explorer')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">15大範疇三導覽</button>
+            <button onclick="scrollToSection('courses')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">六堂實戰課</button>
+            <button onclick="scrollToSection('faq')" class="block w-full text-left px-4 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-forest-800 rounded-xl">指引常見 Q&A</button>
+            <button onclick="scrollToSection('contact')" class="block w-full text-center bg-forest-800 text-white px-4 py-3 rounded-xl text-base font-bold shadow-md">聯絡我們</button>
+        </div>
+    </header>
+
+    <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100 pt-12 pb-0">
+        <!-- 背景輕柔的大自然天藍與綠山漸層底色渲染 -->
+        <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
+            <div class="absolute top-12 right-0 w-[600px] h-[600px] rounded-full bg-emerald-100/60 blur-3xl"></div>
+            <div class="absolute bottom-0 left-12 w-[500px] h-[500px] rounded-full bg-sky-100/50 blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-8">
+                
+                <!-- 左側：標題文字與四大支柱 -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <!-- 封面綠色藥丸標章 -->
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-forest-800 text-white shadow-md">
+                        <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                            <i class="fa-solid fa-leaf text-xs text-aurora-400"></i>
+                        </span>
+                        <span class="font-bold text-sm tracking-wide">溫室氣體盤查標準轉換訓練講義</span>
+                    </div>
+
+                    <!-- 溫室氣體盤查標準大標題 -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-forest-800 tracking-tight leading-tight">
+                        溫室氣體盤查標準
+                    </h1>
+
+                    <!-- 轉換過渡標題 -->
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 py-2">
+                        <span class="text-slate-500 font-semibold text-sm sm:text-lg">由</span>
+                        <span class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-wide border-b-4 border-slate-300 pb-1">ISO 14064-1</span>
+                        <!-- 轉為箭頭 -->
+                        <div class="flex items-center px-4 py-1.5 bg-gradient-to-r from-forest-800 to-forest-700 text-white rounded-lg shadow-sm">
+                            <span class="text-xs font-bold mr-1">轉為</span>
+                            <i class="fa-solid fa-play text-[10px] text-aurora-400 animate-pulse"></i>
+                        </div>
+                        <span class="text-2xl sm:text-3xl font-extrabold text-forest-800 tracking-wide border-b-4 border-forest-600 pb-1">GHG Protocol</span>
+                    </div>
+
+                    <!-- 圖片中間的橫線 -->
+                    <div class="w-full h-[2px] bg-slate-300 relative">
+                        <div class="absolute top-[-4px] left-0 w-24 h-2.5 bg-forest-800 rounded-full"></div>
+                    </div>
+
+                    <!-- 圖片內文 Slogan -->
+                    <p class="text-lg sm:text-xl font-bold text-slate-700 tracking-wide leading-relaxed">
+                        掌握國際主流標準接軌，強化企業碳管理競爭力
+                    </p>
+                    
+                    <p class="text-sm sm:text-base text-slate-500 leading-relaxed max-w-2xl font-light">
+                        本講義完全對應金管會最新二版規範，由雙證資歷（永續顧問與第三方查驗確信員）親自撰寫，協助上市櫃企業有效應對 <span class="underline decoration-aurora-500 decoration-2 font-semibold">IFRS S2</span> 接軌。參考教材：<strong class="font-medium text-slate-800">"範疇3溫室氣體盤查作業參考指引及常見問答集(202506二版).pdf"</strong>。
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <button onclick="scrollToSection('courses')" class="text-center bg-forest-800 hover:bg-forest-900 text-white font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-forest-800/20 hover:shadow-forest-800/30 transition-all transform hover:-translate-y-0.5 text-base">
+                            <i class="fa-solid fa-graduation-cap mr-2"></i>瀏覽完整六堂實戰課
+                        </button>
+                        <button onclick="scrollToSection('standard-comparison')" class="text-center bg-white hover:bg-slate-50 border-2 border-slate-300 text-slate-700 font-bold px-8 py-4 rounded-xl transition-all text-base">
+                            <i class="fa-solid fa-circle-question mr-2"></i>免費對照與對策
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 右側：發光高科技地球模型 -->
+                <div class="lg:col-span-5 flex justify-center items-center py-8 relative">
+                    <div class="relative w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] floating-globe">
+                        <!-- 外圍環繞軌道 -->
+                        <div class="absolute inset-0 border-2 border-dashed border-slate-300 rounded-full orbit-container pointer-events-none">
+                            
+                            <!-- 頂端：CO2碳循環 -->
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 orbit-item">
+                                <div class="bg-white border-2 border-slate-200 rounded-full p-2.5 shadow-md flex flex-col items-center justify-center w-14 h-14">
+                                    <span class="text-[9px] font-black text-slate-600 block">$CO_2$</span>
+                                    <i class="fa-solid fa-arrow-down-long text-xs text-forest-800 mt-0.5"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- 右上：綠色建築 -->
+                            <div class="absolute top-1/4 right-0 translate-x-1/3 orbit-item">
+                                <div class="bg-white border-2 border-slate-200 rounded-full p-3 shadow-md flex items-center justify-center w-12 h-12">
+                                    <i class="fa-solid fa-building text-slate-600 text-lg"></i>
+                                </div>
+                            </div>
+
+                            <!-- 右下：綠色永續葉片 -->
+                            <div class="absolute bottom-1/4 right-0 translate-x-1/3 orbit-item">
+                                <div class="bg-white border-2 border-slate-200 rounded-full p-3 shadow-md flex items-center justify-center w-12 h-12">
+                                    <i class="fa-solid fa-leaf text-forest-800 text-lg"></i>
+                                </div>
+                            </div>
+
+                            <!-- 左下：社會群體/組織 -->
+                            <div class="absolute bottom-1/4 left-0 -translate-x-1/3 orbit-item">
+                                <div class="bg-white border-2 border-slate-200 rounded-full p-3 shadow-md flex items-center justify-center w-12 h-12">
+                                    <i class="fa-solid fa-users text-slate-600 text-lg"></i>
+                                </div>
+                            </div>
+
+                            <!-- 底部：確信稽核檢核表 -->
+                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 orbit-item">
+                                <div class="bg-white border-2 border-slate-200 rounded-full p-2.5 shadow-md flex items-center justify-center w-12 h-12">
+                                    <i class="fa-solid fa-clipboard-check text-forest-800 text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 綠色發光核心地球儀 -->
+                        <div class="absolute inset-4 bg-gradient-to-br from-forest-800/10 to-emerald-500/20 rounded-full flex items-center justify-center overflow-hidden border border-emerald-500/20 shadow-inner">
+                            <svg class="w-full h-full text-forest-800/30 opacity-80" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
+                                <circle cx="50" cy="50" r="45" stroke-dasharray="2 2" />
+                                <circle cx="50" cy="50" r="35" />
+                                <circle cx="50" cy="50" r="25" />
+                                <ellipse cx="50" cy="50" rx="45" ry="15" />
+                                <ellipse cx="50" cy="50" rx="45" ry="30" />
+                                <ellipse cx="50" cy="50" rx="15" ry="45" />
+                                <ellipse cx="50" cy="50" rx="30" ry="45" />
+                                <circle cx="30" cy="30" r="2" fill="currentColor" class="animate-ping" />
+                                <circle cx="70" cy="40" r="2" fill="currentColor" />
+                                <circle cx="50" cy="70" r="2.5" fill="currentColor" />
+                                <circle cx="45" cy="20" r="1.5" fill="currentColor" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="relative">
+                                    <i class="fa-solid fa-earth-asia text-[140px] sm:text-[180px] text-forest-800/80 drop-shadow-xl"></i>
+                                    <span class="absolute top-[48%] left-[64%] flex h-3 w-3">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-aurora-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-3 w-3 bg-aurora-400"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 四大亮點橫列 (對齊封面底部圖示) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto mt-16 relative z-10">
+                
+                <button onclick="scrollToSection('standard-comparison')" class="bg-white hover:bg-forest-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-full border border-forest-600/30 flex items-center justify-center mb-3 group-hover:bg-forest-800 group-hover:text-white transition-all text-forest-800">
+                        <i class="fa-solid fa-file-invoice text-lg"></i>
+                    </div>
+                    <span class="font-extrabold text-slate-800 text-sm sm:text-base">標準比較</span>
+                    <span class="text-xs text-slate-400 mt-1">重點差異解析</span>
+                </button>
+
+                <button onclick="scrollToSection('matrix')" class="bg-white hover:bg-forest-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-full border border-forest-600/30 flex items-center justify-center mb-3 group-hover:bg-forest-800 group-hover:text-white transition-all text-forest-800">
+                        <i class="fa-solid fa-sitemap text-lg"></i>
+                    </div>
+                    <span class="font-extrabold text-slate-800 text-sm sm:text-base">轉換要點</span>
+                    <span class="text-xs text-slate-400 mt-1">流程與方法對應</span>
+                </button>
+
+                <button onclick="scrollToSection('explorer')" class="bg-white hover:bg-forest-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-full border border-forest-600/30 flex items-center justify-center mb-3 group-hover:bg-forest-800 group-hover:text-white transition-all text-forest-800">
+                        <i class="fa-solid fa-chart-line text-lg"></i>
+                    </div>
+                    <span class="font-extrabold text-slate-800 text-sm sm:text-base">實務應用</span>
+                    <span class="text-xs text-slate-400 mt-1">案例與操作說明</span>
+                </button>
+
+                <button onclick="scrollToSection('courses')" class="bg-white hover:bg-forest-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-full border border-forest-600/30 flex items-center justify-center mb-3 group-hover:bg-forest-800 group-hover:text-white transition-all text-forest-800">
+                        <i class="fa-solid fa-globe text-lg"></i>
+                    </div>
+                    <span class="font-extrabold text-slate-800 text-sm sm:text-base">接軌國際</span>
+                    <span class="text-xs text-slate-400 mt-1">提升碳管理效能</span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- 封面底部經典藍綠底帶與永續宣言 -->
+        <div class="w-full transition-gradient-bar text-white py-4 mt-12 z-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-leaf text-aurora-400 animate-pulse"></i>
+                    <span class="font-medium tracking-wide">Measure Today, Manage Tomorrow, Create a Sustainable Future.</span>
+                </div>
+                <div class="text-[10px] text-slate-400 font-light tracking-widest">
+                    穩碳管理顧問有限公司 專業誠信呈現
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 比較-6.png 標準分類對照區塊 -->
+    <section id="standard-comparison" class="py-20 bg-slate-900 text-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sm font-bold text-aurora-400 uppercase tracking-widest block mb-2">COMPARISON FRAMEWORK</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    溫室氣體盤查標準分類對照
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    依據金管會指引附錄一，呈現從 ISO 14064-1:2018 到 GHG Protocol 的排放分類架構。將滑鼠滑過中欄 ISO 14064-1 類別，右側相對應的 GHG Protocol 範疇三類別將會自動聯動發光。
+                </p>
+            </div>
+
+            <!-- 三欄框架對照網格 -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-12">
+                
+                <!-- 第一欄: ISO 14064:2006 分類 (深藍) -->
+                <div class="lg:col-span-3 bg-slate-950/40 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-slate-400 mb-4 border-b border-slate-800 pb-2 flex justify-between items-center">
+                            <span>ISO 14064:2006 分類</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-[10px] rounded text-slate-300">三大範疇</span>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- 範疇一 -->
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800/80 flex items-start space-x-3">
+                                <div class="bg-blue-500/10 text-blue-400 p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-industry text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-extrabold text-sm text-blue-400">範疇一</h4>
+                                    <p class="text-[11px] text-slate-400 mt-1">直接溫室氣體排放</p>
+                                </div>
+                            </div>
+                            <!-- 範疇二 -->
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800/80 flex items-start space-x-3">
+                                <div class="bg-sky-500/10 text-sky-400 p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-plug text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-extrabold text-sm text-sky-400">範疇二</h4>
+                                    <p class="text-[11px] text-slate-400 mt-1">能源間接溫室氣體排放</p>
+                                </div>
+                            </div>
+                            <!-- 範疇三 -->
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800/80 flex items-start space-x-3">
+                                <div class="bg-indigo-500/10 text-indigo-400 p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-box-open text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-extrabold text-sm text-indigo-400">範疇三</h4>
+                                    <p class="text-[11px] text-slate-400 mt-1">其他間接溫室氣體排放</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二欄: ISO 14064-1:2018 分類 (森林綠) -->
+                <div class="lg:col-span-4 bg-slate-950/40 border border-slate-800 rounded-3xl p-6">
+                    <div class="text-xs font-bold text-slate-400 mb-4 border-b border-slate-800 pb-2 flex justify-between items-center">
+                        <span>ISO 14064-1:2018 分類</span>
+                        <span class="px-2 py-0.5 bg-forest-900/40 text-[10px] rounded text-emerald-400 border border-forest-800/40">六大類別</span>
+                    </div>
+                    <div class="space-y-2">
+                        <!-- 類別一 -->
+                        <div onmouseenter="highlightComparison('iso1')" onmouseleave="clearComparison()" class="p-3 bg-slate-900/40 hover:bg-forest-900/20 hover:border-forest-700/60 rounded-xl border border-slate-800/80 transition-all cursor-pointer flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-800/30 text-emerald-400 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">1</span>
+                                <div class="text-left">
+                                    <span class="text-xs font-bold text-slate-200 block">類別 1</span>
+                                    <span class="text-[10px] text-slate-400 font-light">直接溫室氣體排放與移除</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-slate-700 group-hover:text-emerald-500 text-xs transition-colors"></i>
+                        </div>
+                        <!-- 類別二 -->
+                        <div onmouseenter="highlightComparison('iso2')" onmouseleave="clearComparison()" class="p-3 bg-slate-900/40 hover:bg-forest-900/20 hover:border-forest-700/60 rounded-xl border border-slate-800/80 transition-all cursor-pointer flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-800/30 text-emerald-400 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">2</span>
+                                <div class="text-left">
+                                    <span class="text-xs font-bold text-slate-200 block">類別 2</span>
+                                    <span class="text-[10px] text-slate-400 font-light">輸入能源之間接排放</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-slate-700 group-hover:text-emerald-500 text-xs transition-colors"></i>
+                        </div>
+                        <!-- 類別三 -->
+                        <div onmouseenter="highlightComparison('iso3')" onmouseleave="clearComparison()" class="p-3 bg-slate-900/40 hover:bg-forest-900/20 hover:border-forest-700/60 rounded-xl border border-slate-800/80 transition-all cursor-pointer flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-800/30 text-emerald-400 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">3</span>
+                                <div class="text-left">
+                                    <span class="text-xs font-bold text-slate-200 block">類別 3</span>
+                                    <span class="text-[10px] text-slate-400 font-light">運輸之間接排放</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-slate-700 group-hover:text-emerald-500 text-xs transition-colors"></i>
+                        </div>
+                        <!-- 類別四 -->
+                        <div onmouseenter="highlightComparison('iso4')" onmouseleave="clearComparison()" class="p-3 bg-slate-900/40 hover:bg-forest-900/20 hover:border-forest-700/60 rounded-xl border border-slate-800/80 transition-all cursor-pointer flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-800/30 text-emerald-400 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">4</span>
+                                <div class="text-left">
+                                    <span class="text-xs font-bold text-slate-200 block">類別 4</span>
+                                    <span class="text-[10px] text-slate-400 font-light">組織使用產品之間接排放</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-slate-700 group-hover:text-emerald-500 text-xs transition-colors"></i>
+                        </div>
+                        <!-- 類別五 -->
+                        <div onmouseenter="highlightComparison('iso5')" onmouseleave="clearComparison()" class="p-3 bg-slate-900/40 hover:bg-forest-900/20 hover:border-forest-700/60 rounded-xl border border-slate-800/80 transition-all cursor-pointer flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-800/30 text-emerald-400 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">5</span>
+                                <div class="text-left">
+                                    <span class="text-xs font-bold text-slate-200 block">類別 5</span>
+                                    <span class="text-[10px] text-slate-400 font-light">使用來自產品之間接排放</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-slate-700 group-hover:text-emerald-500 text-xs transition-colors"></i>
+                        </div>
+                        <!-- 類別六 -->
+                        <div onmouseenter="highlightComparison('iso6')" onmouseleave="clearComparison()" class="p-3 bg-slate-900/40 hover:bg-forest-900/20 hover:border-forest-700/60 rounded-xl border border-slate-800/80 transition-all cursor-pointer flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-800/30 text-emerald-400 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0">6</span>
+                                <div class="text-left">
+                                    <span class="text-xs font-bold text-slate-200 block">類別 6</span>
+                                    <span class="text-[10px] text-slate-400 font-light">其他來源之間接排放</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-slate-700 group-hover:text-emerald-500 text-xs transition-colors"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三欄: GHG Protocol Scope 3 分類 (15 類別) -->
+                <div class="lg:col-span-5 bg-slate-950/40 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-slate-400 mb-4 border-b border-slate-800 pb-2 flex justify-between items-center">
+                            <span>GHG Protocol Scope 3 分類</span>
+                            <span class="px-2 py-0.5 bg-emerald-900/30 text-[10px] rounded text-emerald-300 border border-emerald-800/30">15 類別</span>
+                        </div>
+                        
+                        <!-- 上游活動 -->
+                        <div class="mb-4">
+                            <span class="inline-block text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full mb-2">上游活動 (Cat. 1 - 8)</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px]">
+                                <div id="ghg-cat-1" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 1: 購買之商品及勞務</div>
+                                <div id="ghg-cat-2" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 2: 資本財</div>
+                                <div id="ghg-cat-3" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 3: 燃料與能源相關活動</div>
+                                <div id="ghg-cat-4" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 4: 上游運輸及配送</div>
+                                <div id="ghg-cat-5" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 5: 營運中產生之廢棄物</div>
+                                <div id="ghg-cat-6" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 6: 商務旅行</div>
+                                <div id="ghg-cat-7" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 7: 員工通勤</div>
+                                <div id="ghg-cat-8" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 8: 上游租賃資產</div>
+                            </div>
+                        </div>
+
+                        <!-- 下游活動 -->
+                        <div>
+                            <span class="inline-block text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full mb-2">下游活動 (Cat. 9 - 15)</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px]">
+                                <div id="ghg-cat-9" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 9: 下游運輸及配送</div>
+                                <div id="ghg-cat-10" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 10: 已銷售產品之加工</div>
+                                <div id="ghg-cat-11" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 11: 已銷售產品之使用</div>
+                                <div id="ghg-cat-12" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 12: 已銷售產品生命週期末處理</div>
+                                <div id="ghg-cat-13" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 13: 下游租賃資產</div>
+                                <div id="ghg-cat-14" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 14: 特許經營/加盟</div>
+                                <div id="ghg-cat-15" class="p-2 rounded bg-slate-900/60 border border-slate-800/80 transition-all text-slate-400">類別 15: 投資</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 兩欄：重點摘要與對照矩陣表 -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-12">
+                <!-- 重點摘要與 15 大類圓章 -->
+                <div class="lg:col-span-4 bg-slate-950/60 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-3 flex items-center">
+                            <span class="w-2.5 h-2.5 rounded-full bg-aurora-400 mr-2 block"></span>
+                            重點摘要
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-light mb-6">
+                            ISO 14064-1:2018 將間接排放細分為 5 大類 (類別 2~6)，可與 GHG Protocol Scope 3 的 15 類價值鏈排放活動進行對應，協助企業更完整掌握供應鏈與價值鏈碳排放來源。
+                        </p>
+                    </div>
+                    
+                    <!-- 15 類別大圓章 -->
+                    <div class="bg-gradient-to-tr from-forest-800/40 to-emerald-900/40 border border-forest-700/30 rounded-2xl p-4 flex items-center justify-between">
+                        <div class="text-left">
+                            <span class="text-xs font-bold text-emerald-400 block">Scope 3 共</span>
+                            <span class="text-2xl font-black text-white block">15 類別</span>
+                            <span class="text-[9px] text-slate-400">涵蓋整體價值鏈排放</span>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center animate-pulse">
+                            <i class="fa-solid fa-shield-halved text-2xl text-emerald-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 對照矩陣對應 Table -->
+                <div class="lg:col-span-8 bg-slate-950/60 border border-slate-800 rounded-3xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-4">ISO 14064-1:2018 與 GHG Protocol Scope 3 對照矩陣</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead>
+                                <tr class="border-b border-slate-800 text-slate-400 font-bold">
+                                    <th class="py-2.5">ISO 14064-1:2018 類別</th>
+                                    <th class="py-2.5 text-center">對應</th>
+                                    <th class="py-2.5 text-emerald-400">GHG Protocol Scope 3 類別對應</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/40 font-light text-slate-300">
+                                <tr class="hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-2.5 font-bold">類別 1 直接溫室氣體排放與移除</td>
+                                    <td class="py-2.5 text-center text-slate-600">➔</td>
+                                    <td class="py-2.5 text-slate-400">（不屬於 Scope 3，屬於 Scope 1）</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-2.5 font-bold">類別 2 輸入能源之間接排放</td>
+                                    <td class="py-2.5 text-center text-slate-600">➔</td>
+                                    <td class="py-2.5 text-slate-400">（不屬於 Scope 3，屬於 Scope 2）</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-2.5 font-bold">類別 3 運輸之間接排放</td>
+                                    <td class="py-2.5 text-center text-slate-600">➔</td>
+                                    <td class="py-2.5 font-bold text-emerald-400">類別 4、6、7、9</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-2.5 font-bold">類別 4 組織使用產品之間接排放</td>
+                                    <td class="py-2.5 text-center text-slate-600">➔</td>
+                                    <td class="py-2.5 font-bold text-emerald-400">類別 1、2、3、5、8</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-2.5 font-bold">類別 5 使用來自產品之間接排放</td>
+                                    <td class="py-2.5 text-center text-slate-600">➔</td>
+                                    <td class="py-2.5 font-bold text-emerald-400">類別 10、11、12、13、14、15</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-2.5 font-bold">類別 6 其他來源之間接排放</td>
+                                    <td class="py-2.5 text-center text-slate-600">➔</td>
+                                    <td class="py-2.5 text-slate-400">（無直接對應範疇三項目）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最下方流程：價值鏈流程示意 -->
+            <div class="bg-slate-950/40 border border-slate-800 rounded-3xl p-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <span class="px-4 py-2 bg-slate-900 border border-slate-800 text-xs font-bold rounded-xl text-slate-300 whitespace-nowrap shrink-0">
+                        價值鏈流程示意
+                    </span>
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-light text-slate-400 w-full">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-cart-shopping text-emerald-400"></i>
+                            <span>原料採購 <span class="text-[10px] text-slate-500">(上游活動)</span></span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-700 hidden sm:block"></i>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-industry text-emerald-400"></i>
+                            <span>製造 <span class="text-[10px] text-slate-500">(營運活動)</span></span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-700 hidden sm:block"></i>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-truck-fast text-emerald-400"></i>
+                            <span>運輸配送 <span class="text-[10px] text-slate-500">(上游/下游運輸)</span></span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-700 hidden sm:block"></i>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-circle-user text-emerald-400"></i>
+                            <span>使用 <span class="text-[10px] text-slate-500">(產品使用)</span></span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-700 hidden sm:block"></i>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-recycle text-emerald-400"></i>
+                            <span>回收處理 <span class="text-[10px] text-slate-500">(生命週期末)</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 轉換對策矩陣 -->
+    <section id="matrix" class="py-24 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sm font-bold text-forest-800 uppercase tracking-widest block mb-2">TRANSITION MATRIX</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    ISO 14064-1 轉 GHG Protocol 對照對策器
+                </h2>
+                <p class="text-lg text-slate-600">
+                    依照證交所最新指南設計。點擊下方 ISO 14064-1 類別，系統將自動解析其對應的 GHG Protocol 範疇及 Category 分類，提供您具體查驗確信對策。
+                </p>
+            </div>
+
+            <!-- 對照工具卡片 -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden relative">
+                <div class="absolute -bottom-10 -right-10 w-60 h-60 rounded-full bg-emerald-500/10 blur-2xl"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- 左側：ISO 類別按鈕 -->
+                    <div class="lg:col-span-5 space-y-3">
+                        <div class="text-xs font-bold text-aurora-400 uppercase tracking-widest mb-2 block">選擇您現有的 ISO 14064-1 分類</div>
+                        
+                        <button onclick="selectIsoCategory('cat1')" id="btn-iso-cat1" class="iso-btn w-full text-left p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-white font-medium hover:border-emerald-500 transition-all flex items-center justify-between">
+                            <span>類別一：直接溫室氣體排放與移除</span>
+                            <i class="fa-solid fa-chevron-right text-emerald-400"></i>
+                        </button>
+                        
+                        <button onclick="selectIsoCategory('cat2')" id="btn-iso-cat2" class="iso-btn w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 font-medium hover:border-slate-700 transition-all flex items-center justify-between">
+                            <span>類別二：輸入能源之間接排放</span>
+                            <i class="fa-solid fa-chevron-right text-slate-600"></i>
+                        </button>
+                        
+                        <button onclick="selectIsoCategory('cat3')" id="btn-iso-cat3" class="iso-btn w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 font-medium hover:border-slate-700 transition-all flex items-center justify-between">
+                            <span>類別三：運輸之間接排放</span>
+                            <i class="fa-solid fa-chevron-right text-slate-600"></i>
+                        </button>
+                        
+                        <button onclick="selectIsoCategory('cat4')" id="btn-iso-cat4" class="iso-btn w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 font-medium hover:border-slate-700 transition-all flex items-center justify-between">
+                            <span>類別四：組織使用產品之間接排放</span>
+                            <i class="fa-solid fa-chevron-right text-slate-600"></i>
+                        </button>
+                        
+                        <button onclick="selectIsoCategory('cat5')" id="btn-iso-cat5" class="iso-btn w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 font-medium hover:border-slate-700 transition-all flex items-center justify-between">
+                            <span>類別五：使用來自產品之間接排放</span>
+                            <i class="fa-solid fa-chevron-right text-slate-600"></i>
+                        </button>
+                    </div>
+
+                    <!-- 右側：GHG Protocol 對應結果 -->
+                    <div class="lg:col-span-7 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur-sm min-h-[400px] flex flex-col justify-between">
+                        <div id="matrix-result">
+                            <!-- 動態渲染的對照內容 -->
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t border-slate-800 flex items-center justify-between flex-wrap gap-4">
+                            <span class="text-xs text-slate-500"><i class="fa-solid fa-circle-info mr-1"></i> 指南參考：證交所/金管會最新第二版確信標準</span>
+                            <button onclick="scrollToSection('courses')" class="text-xs sm:text-sm font-bold text-aurora-400 hover:text-aurora-300 transition-colors flex items-center space-x-1">
+                                <span>了解此部分的教育培訓課程</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15大範疇三導覽 -->
+    <section id="explorer" class="py-24 bg-slate-100 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-sm font-bold text-forest-800 uppercase tracking-widest block mb-2">Scope 3 Value Chain</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    範疇三 (Scope 3) 15大類別精準導覽
+                </h2>
+                <p class="text-lg text-slate-600">
+                    完整收錄 15 大類別定義與最小要求範圍。結合教材 <strong class="font-medium">"範疇3溫室氣體盤查作業參考指引及常見問答集(202506二版).pdf"</strong> 進行量化設計。
+                </p>
+            </div>
+
+            <!-- 產業速查與篩選 (對齊附錄1.1~1.17) -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 mb-8">
+                <div class="flex flex-col items-start gap-4">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-3 w-full">
+                        <span class="text-slate-500 font-semibold whitespace-nowrap"><i class="fa-solid fa-filter mr-1"></i> 產業指引主要類別篩選：</span>
+                        <select id="industry-select" onchange="filterIndustryCriticality()" class="w-full md:w-80 bg-slate-50 border border-slate-200 text-slate-800 font-semibold px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 transition-all">
+                            <option value="none">請選擇您的產業...</option>
+                            <option value="agriculture">1.1 大宗農產品</option>
+                            <option value="capital_goods">1.2 資本財</option>
+                            <option value="cement">1.3 水泥業</option>
+                            <option value="chemistry">1.4 化學業</option>
+                            <option value="coal">1.5 煤炭業</option>
+                            <option value="construction">1.6 營建業</option>
+                            <option value="utility">1.7 電力公用事業</option>
+                            <option value="finance">1.8 金融服務業</option>
+                            <option value="food_beverage">1.9 食品、飲料與菸草業</option>
+                            <option value="metals_mining">1.10 金屬與礦業</option>
+                            <option value="oil_gas">1.11 石油與天然氣業</option>
+                            <option value="paper_forestry">1.12 造紙業與林業</option>
+                            <option value="real_estate">1.13 不動產業</option>
+                            <option value="steel">1.14 鋼鐵業</option>
+                            <option value="transport_manufacturing">1.15 運輸製造業</option>
+                            <option value="transport_services">1.16 運輸服務業</option>
+                            <option value="electrical_electronics">1.17 電子電機製造業</option>
+                        </select>
+                    </div>
+                    <!-- 排放佔比長條圖動態呈現容器 -->
+                    <div id="industry-crit-tag" class="hidden text-xs sm:text-sm bg-white border border-slate-200 p-6 rounded-2xl shadow-sm w-full">
+                        <!-- 動態產業主要類別說明 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 上下游切換標籤 -->
+            <div class="flex space-x-2 mb-6 bg-slate-200 p-1.5 rounded-2xl max-w-md mx-auto">
+                <button onclick="switchExplorerTab('upstream')" id="tab-upstream" class="flex-1 text-center py-3 rounded-xl text-sm font-extrabold transition-all bg-white text-slate-900 shadow-sm">
+                    上游活動 (Cat. 1 - 8)
+                </button>
+                <button onclick="switchExplorerTab('downstream')" id="tab-downstream" class="flex-1 text-center py-3 rounded-xl text-sm font-extrabold transition-all text-slate-600 hover:text-slate-900">
+                    下游活動 (Cat. 9 - 15)
+                </button>
+            </div>
+
+            <!-- 15個類別卡片容器 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="explorer-grid">
+                <!-- 動態載入 Scope 3 類別 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 六堂實戰課 -->
+    <section id="courses" class="py-24 bg-white relative scroll-mt-20">
+        <div class="absolute top-1/2 left-0 right-0 h-96 bg-slate-50 -skew-y-3 z-0"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sm font-bold text-forest-800 uppercase tracking-widest block mb-2">Education & Training</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    GHG Protocol 範疇三量化實戰培訓招生
+                </h2>
+                <p class="text-lg text-slate-600">
+                    本課程大綱完整對應專用教材 <strong class="font-semibold text-slate-800">"GHG_Scope3_講義_完整六堂課.pdf"</strong>。由具備第三方查驗確信員資歷之專家授課，助您深入解決盤查與申報實務。
+                </p>
+            </div>
+
+            <!-- 六堂課大綱網格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- 課程 1 -->
+                <div class="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-forest-800/20 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full">第 1 堂課 (3小時)</span>
+                            <span class="text-forest-800 font-extrabold text-xs">基礎建立</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">溫室氣體盤查基礎與制度背景</h3>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-3">介紹全球暖化與溫室氣體管理必要性。解析台灣法規現況與金管會 IFRS S2 接軌時程，建立氣體會計五大原則基礎架構。</p>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 國際倡議與台灣永續發展接軌時程</li>
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 七種管制溫室氣體定義與最新 GWP 係數</li>
+                        </ul>
+                    </div>
+                    <button onclick="enrollCourse(1)" class="w-full py-3 bg-slate-50 hover:bg-forest-50 text-slate-800 hover:text-forest-800 font-bold text-sm rounded-2xl transition-all border border-slate-100 hover:border-forest-200">
+                        立即報名此課程
+                    </button>
+                </div>
+
+                <!-- 課程 2 -->
+                <div class="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-forest-800/20 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full">第 2 堂課 (3小時)</span>
+                            <span class="text-forest-800 font-extrabold text-xs">邊界設定</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">組織邊界與營運邊界設定</h3>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-3">學習權益份額法與控制法的選擇技巧，以及財務控制與營運控制的判定實務。詳細對照地點與市場基礎法之範疇二報導要求。</p>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 子公司合併範圍與組織邊界判定基準</li>
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 再生能源憑證(REC)與 PPA 於範疇二的揭露規定</li>
+                        </ul>
+                    </div>
+                    <button onclick="enrollCourse(2)" class="w-full py-3 bg-slate-50 hover:bg-forest-50 text-slate-800 hover:text-forest-800 font-bold text-sm rounded-2xl transition-all border border-slate-100 hover:border-forest-200">
+                        立即報名此課程
+                    </button>
+                </div>
+
+                <!-- 課程 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-forest-800/20 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full">第 3 堂課 (3小時)</span>
+                            <span class="text-forest-800 font-extrabold text-xs">上游深度</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">範疇3上游類別 (Cat.1-8) 精解</h3>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-3">最關鍵的上游採購產品（Cat.1）與資本財（Cat.2）之精確區分。分析員工通勤（Cat.7）問卷設計以及運輸（Cat.4）的延噸公里量化。</p>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 一階供應商之採購數據分攤與篩選方法</li>
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 輸配電線路損失（T&D Loss）於 Cat.3 提報之公式</li>
+                        </ul>
+                    </div>
+                    <button onclick="enrollCourse(3)" class="w-full py-3 bg-slate-50 hover:bg-forest-50 text-slate-800 hover:text-forest-800 font-bold text-sm rounded-2xl transition-all border border-slate-100 hover:border-forest-200">
+                        立即報名此課程
+                    </button>
+                </div>
+
+                <!-- 課程 4 -->
+                <div class="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-forest-800/20 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full">第 4 堂課 (3小時)</span>
+                            <span class="text-forest-800 font-extrabold text-xs">下游實戰</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">範疇3下游類別 (Cat.9-15) 精解</h3>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-3">下游產品使用階段（Cat.11）與壽命終期處理（Cat.12）之量化情境假設。深度解析金融業最關注的 PCAF 財務碳排放與 Cat.15 投資組合。</p>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 產品預期使用壽命與各國電網排放係數匹配</li>
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 上市股票、貸款與專案融資之財務碳排放歸因</li>
+                        </ul>
+                    </div>
+                    <button onclick="enrollCourse(4)" class="w-full py-3 bg-slate-50 hover:bg-forest-50 text-slate-800 hover:text-forest-800 font-bold text-sm rounded-2xl transition-all border border-slate-100 hover:border-forest-200">
+                        立即報名此課程
+                    </button>
+                </div>
+
+                <!-- 課程 5 -->
+                <div class="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-forest-800/20 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full">第 5 堂課 (3小時)</span>
+                            <span class="text-forest-800 font-extrabold text-xs">數據管理</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">資料品質管理與計算實務</h3>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-3">學習初級資料與次級資料之搭配策略。在缺乏本土特定係數時，妥善應用國際權威生命週期資料庫（如 ecoinvent, DEFRA）並確保合規性。</p>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 技術、地理及時間代表性等五大指標評級方法</li>
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 參數與情境不確定性之敏感度分析技巧</li>
+                        </ul>
+                    </div>
+                    <button onclick="enrollCourse(5)" class="w-full py-3 bg-slate-50 hover:bg-forest-50 text-slate-800 hover:text-forest-800 font-bold text-sm rounded-2xl transition-all border border-slate-100 hover:border-forest-200">
+                        立即報名此課程
+                    </button>
+                </div>
+
+                <!-- 課程 6 -->
+                <div class="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-forest-800/20 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full">第 6 堂課 (3小時)</span>
+                            <span class="text-forest-800 font-extrabold text-xs">確信報告</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">報告揭露、IFRS S2 接軌與實戰 Q&A</h3>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-3">撰寫一份能通過第三方確信查驗的範疇三盤查公開報告。系統盤點證交所與金管會最新審查常見缺失與回應技巧。</p>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 必要與選擇性揭露項、基準年重新計算門檻判定</li>
+                            <li><i class="fa-solid fa-circle-check text-forest-800 mr-1.5"></i> 金管會最新二版常見問答精華深度剖析與指導</li>
+                        </ul>
+                    </div>
+                    <button onclick="enrollCourse(6)" class="w-full py-3 bg-slate-50 hover:bg-forest-50 text-slate-800 hover:text-forest-800 font-bold text-sm rounded-2xl transition-all border border-slate-100 hover:border-forest-200">
+                        立即報名此課程
+                    </button>
+                </div>
+            </div>
+
+            <!-- 企業包班與團體優惠方案 -->
+            <div class="bg-gradient-to-br from-forest-800 to-ocean-900 text-white p-8 sm:p-12 rounded-3xl shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold mb-4">企業專班與包班優惠方案</h3>
+                    <p class="text-emerald-100 max-w-2xl text-sm sm:text-base leading-relaxed">
+                        我們提供為期 18 小時的完整「範疇三盤查與 IFRS S2 接軌培訓」，最適合企業永續推動委員會、採購與會計核心同仁參與。課程贈送全套實戰講義教材，協助產出符合確信要求的模擬報告。
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full lg:w-auto shrink-0">
+                    <button onclick="selectInquiryType('包班諮詢')" class="text-center bg-white text-forest-800 font-extrabold px-6 py-3.5 rounded-xl hover:bg-forest-50 transition-all shadow-md">
+                        諮詢企業包班
+                    </button>
+                    <button onclick="selectInquiryType('團體報名')" class="text-center bg-aurora-400 text-slate-950 font-black px-6 py-3.5 rounded-xl hover:bg-aurora-300 transition-all shadow-md">
+                        個人/團體報名
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ問答 -->
+    <section id="faq" class="py-24 bg-slate-100 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <span class="text-sm font-bold text-forest-800 uppercase tracking-widest block mb-2">Q&A FAQ</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    指引常見問答與實務 Q&A
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    精選金管會最新第二版《範疇3溫室氣體盤查作業指引與問答集》中最具爭議、詢問度最高的盤查實務與查驗問答。
+                </p>
+            </div>
+
+            <!-- 搜尋 FAQ -->
+            <div class="relative mb-6">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="faq-search" oninput="searchFaq()" placeholder="搜尋關鍵字（例如：重複計算、投資、海外係數）..." class="w-full bg-white border border-slate-200 pl-11 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 transition-all">
+            </div>
+
+            <!-- FAQ 手風琴 -->
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ 項目將透過 JavaScript 動態載入 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡與詢問 -->
+    <section id="contact" class="py-24 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- 聯絡說明 -->
+                <div class="lg:col-span-5">
+                    <span class="text-sm font-bold text-forest-800 uppercase tracking-widest block mb-2">Contact & Inquire</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-6">
+                        為您的企業預約<br/>無痛合規評估
+                    </h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed font-light text-sm sm:text-base">
+                        不論您的企業是尚未進行盤查，或已完成 ISO 14064-1 準備轉換。請填寫您的基本資訊與服務詢問事項，我將親自為您提供客製化顧問與教育訓練時程安排，助您的企業迅速對接 IFRS S2 準則。
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-slate-50 text-forest-800 p-3 rounded-2xl border border-slate-100 shadow-inner">
+                                <i class="fa-solid fa-building text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold">服務顧問</div>
+                                <div class="font-bold text-slate-800">穩碳管理顧問有限公司</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-slate-50 text-forest-800 p-3 rounded-2xl border border-slate-100 shadow-inner">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold">聯絡信箱</div>
+                                <a href="mailto:envitec.chen@gmail.com" class="font-bold text-forest-800 hover:underline">envitec.chen@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-slate-50 text-forest-800 p-3 rounded-2xl border border-slate-100 shadow-inner">
+                                <i class="fa-solid fa-user-tie text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold">專業資歷</div>
+                                <div class="font-bold text-slate-800">溫室氣體與永續管理顧問暨第三方查驗確信員</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-slate-50 text-forest-800 p-3 rounded-2xl border border-slate-100 shadow-inner">
+                                <i class="fa-solid fa-shield-halved text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold">誠信保障</div>
+                                <div class="font-bold text-slate-800">100% 遵守個資法與企業商業機密保護協定</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 聯絡與詢問表單 -->
+                <div class="lg:col-span-7 bg-slate-50 border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-xl">
+                    <form id="inquiry-form" onsubmit="submitInquiry(event)" class="space-y-6">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">公司名稱 <span class="text-red-500">*</span></label>
+                                <input type="text" id="form-company" required placeholder="例如：穩碳科技股份有限公司" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">統一編號</label>
+                                <input type="text" id="form-taxid" placeholder="8位數字統一編號" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">聯絡人姓名 <span class="text-red-500">*</span></label>
+                                <input type="text" id="form-name" required placeholder="請輸入聯絡人姓名" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">聯絡電話 <span class="text-red-500">*</span></label>
+                                <input type="tel" id="form-phone" required placeholder="例如：0912-345678" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">電子郵件信箱 <span class="text-red-500">*</span></label>
+                            <input type="email" id="form-email" required placeholder="例如：contact@stablecarbon.com" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">企業現有盤查狀態</label>
+                                <select id="form-status" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm text-slate-700">
+                                    <option value="not_yet">尚未進行任何盤查</option>
+                                    <option value="iso_done">已完成 ISO 14064-1 (尚未做過GHG)</option>
+                                    <option value="both_done">已完成 ISO 且在做 GHG Protocol 轉換</option>
+                                    <option value="other">其他客製化永續需求</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">您需要的服務類型</label>
+                                <select id="form-service" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm text-slate-700">
+                                    <option value="consulting">ISO 轉換 GHG Protocol 顧問輔導</option>
+                                    <option value="course_all">六堂 18 小時完整實戰培訓報名</option>
+                                    <option value="corporate">企業永續委員會/永續包班培訓</option>
+                                    <option value="scope3">範疇三 (Scope 3) 專案盤查與量化</option>
+                                    <option value="audit_prep">確信查驗第三方前置審查與準備</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">諮詢或報名詳細說明</label>
+                            <textarea id="form-message" rows="4" placeholder="請填寫您希望諮詢的問題，如：欲轉移之子公司家數、希望培訓之總人數、預算規劃等..." class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-forest-800 text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-forest-800 hover:bg-forest-900 text-white font-extrabold text-base rounded-2xl transition-all shadow-lg shadow-forest-800/10 hover:shadow-forest-800/20 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>送出諮詢與培訓報名資料</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 填寫成功 Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-middle bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-slate-100">
+                <div class="p-8">
+                    <div class="text-center">
+                        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-emerald-100 text-forest-800 mb-4">
+                            <i class="fa-solid fa-circle-check text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-2">諮詢表單已在本機生成！</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mb-4">
+                            由於瀏覽器安全機制與 SandBox (沙盒) 環境限制，自動起草信件可能被阻擋。上線後即可完美運作；現在推薦您直接使用下方**一鍵手動專區**進行複製與發信：
+                        </p>
+                    </div>
+                    
+                    <!-- 手動複製 100% 成功發信通道 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6 space-y-4 mb-6">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2">
+                            <i class="fa-solid fa-copy mr-1"></i> 100% 成功手動通道 (點擊綠色複製按鈕)
+                        </span>
+
+                        <!-- 信箱 -->
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 mb-1">1. 收件者信箱 (Mail To)</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="text" readonly value="envitec.chen@gmail.com" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg text-xs flex-1 font-mono text-slate-600 focus:outline-none">
+                                <button onclick="copyFeedbackText('envitec.chen@gmail.com', this)" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-1.5 px-3 rounded-lg text-[11px] transition-all flex items-center space-x-1 whitespace-nowrap">
+                                    <i class="fa-solid fa-copy"></i>
+                                    <span>複製信箱</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 主旨 -->
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 mb-1">2. 郵件主旨 (Subject)</label>
+                            <div class="flex items-center space-x-2">
+                                <input type="text" id="modal-mail-subject" readonly value="" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg text-xs flex-1 text-slate-600 focus:outline-none">
+                                <button onclick="copyFeedbackText(document.getElementById('modal-mail-subject').value, this)" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-1.5 px-3 rounded-lg text-[11px] transition-all flex items-center space-x-1 whitespace-nowrap">
+                                    <i class="fa-solid fa-copy"></i>
+                                    <span>複製主旨</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 信件內容 -->
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 mb-1">3. 郵件全文內容 (Body)</label>
+                            <div class="flex flex-col space-y-2">
+                                <textarea id="modal-mail-body" readonly rows="5" class="bg-white border border-slate-200 p-3 rounded-lg text-xs font-mono text-slate-600 focus:outline-none resize-none"></textarea>
+                                <button onclick="copyFeedbackText(document.getElementById('modal-mail-body').value, this)" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded-xl text-xs transition-all flex items-center justify-center space-x-1">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                    <span>複製郵件全文內容</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 郵件大門跳轉 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                        <a id="btn-web-gmail" href="https://mail.google.com" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-extrabold py-3 px-4 rounded-xl text-xs transition-all shadow-md flex items-center justify-center space-x-1.5">
+                            <i class="fa-brands fa-google"></i>
+                            <span>開啟 Gmail 網頁版並貼上</span>
+                        </a>
+                        <a id="btn-send-email" href="#" class="bg-forest-800 hover:bg-forest-900 text-white font-extrabold py-3 px-4 rounded-xl text-xs transition-all shadow-md flex items-center justify-center space-x-1.5">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>直接開啟本機郵件軟體</span>
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <button onclick="closeSuccessModal()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition-all">
+                            確定並關閉視窗
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center space-x-3 text-white">
+                        <div class="bg-forest-800 p-2 rounded-xl">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight">穩碳管理顧問有限公司</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm font-light">
+                        為上市櫃及中大型企業提供符合金管會規範、第三方確信查驗要求之溫室氣體 Scope 1, 2, 3 盤查轉移與教育培訓。
+                    </p>
+                    <div class="text-xs text-slate-400 pt-1">
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-envelope text-forest-600"></i> 信箱：<a href="mailto:envitec.chen@gmail.com" class="hover:text-white transition-colors underline">envitec.chen@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">快速導覽</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><button onclick="scrollToSection('hero')" class="hover:text-aurora-400 transition-colors text-left">永續首頁</button></li>
+                        <li><button onclick="scrollToSection('matrix')" class="hover:text-aurora-400 transition-colors text-left">ISO對照矩陣</button></li>
+                        <li><button onclick="scrollToSection('explorer')" class="hover:text-aurora-400 transition-colors text-left">15大範疇三導覽</button></li>
+                        <li><button onclick="scrollToSection('courses')" class="hover:text-aurora-400 transition-colors text-left">實戰培訓課程</button></li>
+                        <li><button onclick="scrollToSection('faq')" class="hover:text-aurora-400 transition-colors text-left">常見 Q&A 問答</button></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">聲明與資料引用</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">
+                        本網站提供之所有對照資料、指引導覽及 FAQ 內容均參考臺灣證券交易所、證券櫃檯買賣中心、臺灣期貨交易所及臺灣集保結算所編寫之最新版教材 <strong>《範疇3溫室氣體盤查作業參考指引及常見問答集(202506二版).pdf》</strong> 及 <strong>《GHG_Scope3_講義_完整六堂課.pdf》</strong>。
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        &copy; 2026 穩碳管理顧問有限公司. All rights reserved. 版權所有
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500 font-light">
+                本網頁完全採單一 HTML5 檔案架構設計，內嵌響應式 Tailwind CSS 框架，支持快速佈署至靜態伺服器上線。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 手機版選單切換與自動關閉
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 智慧滾動邏輯 - 解決 SandBox 預覽不跳轉的問題，自動扣除 80px 的導航高度
+        function scrollToSection(id) {
+            mobileMenu.classList.add('hidden'); // 自動收合手機選單
+            const el = document.getElementById(id);
+            if (el) {
+                const headerOffset = 80;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // 比較-6.png 懸浮高亮互動對照關聯 (類別 1 屬於 Scope 1、類別 2 屬於 Scope 2)
+        const comparisonMapping = {
+            iso1: [],
+            iso2: [],
+            iso3: [4, 6, 7, 9],
+            iso4: [1, 2, 3, 5, 8],
+            iso5: [10, 11, 12, 13, 14, 15],
+            iso6: []
+        };
+
+        function highlightComparison(isoId) {
+            clearComparison(); // 先清除前一次
+            const targetIds = comparisonMapping[isoId] || [];
+            targetIds.forEach(id => {
+                const el = document.getElementById(`ghg-cat-${id}`);
+                if (el) {
+                    el.className = "p-2 rounded bg-emerald-500/20 border border-emerald-400 text-white font-bold transform scale-[1.02] shadow-lg shadow-emerald-500/10 transition-all duration-300";
+                }
+            });
+        }
+
+        function clearComparison() {
+            for (let i = 1; i <= 15; i++) {
+                const el = document.getElementById(`ghg-cat-${i}`);
+                if (el) {
+                    el.className = "p-2 rounded bg-slate-900/60 border border-slate-800/80 text-slate-400 transition-all duration-300";
+                }
+            }
+        }
+
+        // ISO 14064-1 轉 GHG Protocol 對照對策數據
+        const isoMatrixData = {
+            cat1: {
+                title: "類別一：直接溫室氣體排放與移除",
+                ghgScope: "範疇一 (Scope 1) — 直接溫室氣體排放",
+                categories: "固定式燃燒 (鍋爐/熔爐)、移動式燃燒 (公司自有車隊)、物理與化學製程排放、逸散性排放 (冷媒、接頭洩漏)、以及土地使用與土地使用改變直接排放。",
+                action: "直接轉移！兩者定義完全一致，數據可 100% 套用。需要注意的是，GHG Protocol 要求生質能 (Biogenic) 燃燒產生的 $CO_2$ 必須單獨分開報告，不可納入範疇一主體中。",
+                checklist: ["確保公司所有或控制的車輛與發電鍋爐全數納入", "清查冷凍冷藏與中央空調之冷媒補充紀錄(HFCs)", "排除生質能燃燒之 $CO_2$ 排放，並置於備忘錄項目獨立揭露"]
+            },
+            cat2: {
+                title: "類別二：輸入能源之間接排放",
+                ghgScope: "範疇二 (Scope 2) — 外購能源之間接溫室氣體排放",
+                categories: "外購自用電力、蒸汽、熱能、冷能之生產排放。",
+                action: "地點與市場雙軌報導！在 ISO 中僅需依輸入電力直接計算。但在 GHG Protocol (符合 IFRS S2 揭露要求)中，企業必須報導『地點基礎法(Location-based)』。若有購買綠電憑證(REC)或簽訂 PPA，應於報告中披露該合約工具特徵，但主要申報仍以地點基礎為法定核心。",
+                checklist: ["取得台電或當地國家電網最新之年度電力排放係數", "保留外購電力、自用蒸汽、外購冷熱能之收費單據與度數儀表紀錄", "如有購買再生能源憑證，保留註銷憑證(REC)等合約工具"]
+            },
+            cat3: {
+                title: "類別三：運輸之間接排放",
+                ghgScope: "範疇三 (Scope 3) — 下列類別：",
+                categories: "類別 4 (上游運輸及配送)、類別 9 (下游運輸及配送)、類別 6 (商務旅行)、類別 7 (員工通勤)。",
+                action: "依費用承擔方拆分！此為轉換最易錯的部分。ISO 的運輸不分上游或下游，但在 GHG Protocol 中：\n1. 凡是報導公司支付物流費用的運輸，計入「Category 4 上游運輸」；\n2. 由客戶支付運費的已售產品運輸，計入「Category 9 下游運輸」；\n3. 員工通勤計入 Cat 7，商務差旅計入 Cat 6。需依此重新拆分！",
+                checklist: ["篩選採購單與銷貨單，釐清運輸段之費用支付方（FOB/CIF）", "設計員工通勤匿名問卷（ Cat 7 ）與收集旅行社差旅記錄（ Cat 6 ）", "海運與空運跨國距離採用大圓距離（Great Circle Distance）計算"]
+            },
+            cat4: {
+                title: "類別四：組織使用產品之間接排放",
+                ghgScope: "範疇三 (Scope 3) — 下列類別：",
+                categories: "類別 1 (購買商品及勞務)、類別 2 (資本財)、類別 3 (外購燃料/能源上游與線損)、類別 5 (營運中產生之廢棄物)、類別 8 (上游租賃資產)。",
+                action: "資產與耗損分拆！ISO 類別四極廣。轉移至 GHG Protocol 時：\n1. 採購之原料與外包服務歸入「Category 1 購買商品及勞務」；\n2. 固定資產(廠房、機械、IT 設備)歸入「Category 2 資本財」；\n3. 燃料與電力在輸配電網上的線路損失，歸入「Category 3 能源上游活動（未含範疇一二）」。",
+                checklist: ["依財務會計帳，拆分採購原料費用與固定資產資本化支出", "清查營運廢棄物轉移清單與各廢棄物委託處理方式（掩埋/焚化/回收）", "依據台電線損率（T&D Loss %）計算外購電力的輸配電網耗損排放"]
+            },
+            cat5: {
+                title: "類別五：使用來自產品之間接排放",
+                ghgScope: "範疇三 (Scope 3) — 下列類別：",
+                categories: "類別 10 (已銷售產品之加工)、類別 11 (已銷售產品之使用)、類別 12 (已銷售產品生命週期末處理)、類別 13 (下游租賃資產)、類別 14 (特許經營/加盟)、類別 15 (投資)。",
+                action: "生命週期預估！轉移至 GHG Protocol 時，針對 Category 11 (已銷售產品之使用)，要求一次性計算在『報導年度內』所售出的產品，在其整個『預期使用壽命期間』所產生的總排放量。此處與 ISO 回顧式盤查有顯著邏輯差異，是電子電機製造業的核心重點！",
+                checklist: ["界定售出產品是『中間產品』還是『最終產品』", "建立銷售產品的使用情境輪廓（使用時間、消耗電力/燃料瓦數）", "若有股權投資，依據 PCAF 準則與持股比例計算歸因排放量（Cat 15）"]
+            }
+        };
+
+        function selectIsoCategory(id) {
+            document.querySelectorAll('.iso-btn').forEach(btn => {
+                btn.className = "iso-btn w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 font-medium hover:border-slate-700 transition-all flex items-center justify-between";
+                const icon = btn.querySelector('i');
+                if (icon) icon.className = "fa-solid fa-chevron-right text-slate-600";
+            });
+
+            const activeBtn = document.getElementById(`btn-iso-${id}`);
+            activeBtn.className = "iso-btn w-full text-left p-4 rounded-xl border-emerald-500/30 bg-emerald-500/10 text-white font-medium hover:border-emerald-500 transition-all flex items-center justify-between";
+            const activeIcon = activeBtn.querySelector('i');
+            if (activeIcon) activeIcon.className = "fa-solid fa-chevron-right text-emerald-400";
+
+            renderIsoResult(id);
+        }
+
+        function renderIsoResult(id) {
+            const data = isoMatrixData[id];
+            const html = `
+                <div class="space-y-5 animate-fadeIn">
+                    <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">當前對照：${data.title}</span>
+                    
+                    <div>
+                        <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">GHG Protocol 範疇對應</h4>
+                        <div class="text-xl font-bold text-white flex items-center space-x-2">
+                            <i class="fa-solid fa-right-left text-emerald-400 text-sm"></i>
+                            <span>${data.ghgScope}</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">涵蓋主要活動</h4>
+                        <p class="text-slate-300 text-sm font-light">${data.categories}</p>
+                    </div>
+
+                    <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <h4 class="text-xs text-emerald-400 font-extrabold uppercase tracking-wider mb-1.5"><i class="fa-solid fa-lightbulb mr-1"></i> 第三方查驗確信對策建議</h4>
+                        <p class="text-slate-300 text-xs sm:text-sm whitespace-pre-line leading-relaxed font-light">${data.action}</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-2">關鍵資料準備檢核清單</h4>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-400">
+                            ${data.checklist.map(item => `
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-square-check text-emerald-500 mt-0.5 mr-2 shrink-0"></i>
+                                    <span>${item}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            document.getElementById('matrix-result').innerHTML = html;
+        }
+
+        // 15 大範疇三類別基本資訊
+        const scope3Categories = [
+            {
+                id: 1,
+                tab: "upstream",
+                title: "Cat 1: 購買之商品及勞務",
+                desc: "公司於報導年度內購買或取得之商品及服務的上游開採、生產及運輸（排除 Cat 2 - 8 已單獨提報的項目）。",
+                boundary: "購買商品（中間產品或原料）及勞務的所有上游（從搖籃到大門）排放。",
+                formula: "∑ ( 購買商品重量/數量 x 該商品/材料之從搖籃到大門排放係數 )"
+            },
+            {
+                id: 2,
+                tab: "upstream",
+                title: "Cat 2: 資本財",
+                desc: "報導公司在報導年度內購買或獲得之資本化固定資產的上游（從搖籃到大門）排放（不折舊攤提，一次性記入）。",
+                boundary: "所購買固定資產（如新建廠房、機械、大型伺服器、車輛）從搖籃到大門的所有上游排放。",
+                formula: "∑ ( 購買之資本財數量 x 固定資產製造排放係數 )"
+            },
+            {
+                id: 3,
+                tab: "upstream",
+                title: "Cat 3: 燃料與能源相關活動(未含範疇1/2)",
+                desc: "消耗燃料與電力之上游開採、生產與電網線路傳輸耗損（T&D Loss）等不包含在範疇一與二內的排放。",
+                boundary: "自用燃料開採與運輸、發電用燃料上游開採與運輸、輸配電損耗（由終端用戶報告）。",
+                formula: "∑ ( 電力度數 x 輸配線損率 % x 電力發電生命週期排放係數 )"
+            },
+            {
+                id: 4,
+                tab: "upstream",
+                title: "Cat 4: 上游運輸及配送",
+                desc: "購買產品在報導公司一階供應商與自營運據點間的運輸，或報導公司付費採購之進貨、出貨與自有據點間的第三方物流運輸與配送。",
+                boundary: "第三方運輸供應商在提供空運、海運、陸運、倉儲服務期間產生的範疇一和二排放。",
+                formula: "∑ ( 貨物運輸重量 in tonnes x 運輸距離 in km x 該載具之延噸公里排放係數 )"
+            },
+            {
+                id: 5,
+                tab: "upstream",
+                title: "Cat 5: 營運中產生之廢棄物",
+                desc: "營運過程中所產生之固體廢棄物與廢水，經第三方廠商處置與處理（掩埋、焚化、回收）所造成的排放。",
+                boundary: "廢棄物處置廠商在處理固體廢水期間發生的排放（排除自有處置設施）。",
+                formula: "∑ ( 各類廢棄物產出量 x 對應處理方式之排放係數 )"
+            },
+            {
+                id: 6,
+                tab: "upstream",
+                title: "Cat 6: 商務旅行",
+                desc: "員工因公差旅搭乘非公司控制之第三方客運工具（飛機、高鐵、租車、客運等）及飯店住宿產生的排放。",
+                boundary: "客運載具運行期間之排放（若納入住宿，計入飯店之能源排放）。",
+                formula: "∑ ( 差旅搭乘載具之乘人公里 x 交通工具乘人公里排放係數 )"
+            },
+            {
+                id: 7,
+                tab: "upstream",
+                title: "Cat 7: 員工通勤",
+                desc: "員工每日往返住家與工作地點之間的通勤排放，亦可包括遠端工作（Home Office）能源消耗（可選）。",
+                boundary: "員工通勤搭乘大眾運輸、開車或騎車之範疇一與二排放。",
+                formula: "∑ ( 員工總數 x 調查之通勤載具每日里程 x 工作天數 x 通勤排放係數 )"
+            },
+            {
+                id: 8,
+                tab: "upstream",
+                title: "Cat 8: 上游租賃資產",
+                desc: "向其他主體租賃之尚未計入範疇一或二的資產營運排放。通常適用承租戶（如承租辦公室、機具、車輛）。",
+                boundary: "租賃資產租期內自用燃料與電力引起的範疇一和二排放。",
+                formula: "∑ ( 租賃面積 / 總面積 x 租賃建物之總耗能 x 排放係數 )"
+            },
+            {
+                id: 9,
+                tab: "downstream",
+                title: "Cat 9: 下游運輸及配送",
+                desc: "由公司售出之產品在離開銷售點到終端客戶間的運輸。前提是費用非公司負擔且非公司所擁有之運具。",
+                boundary: "下游第三方承運商、批發商和零售商在使用車輛和倉庫期間產生的排放。",
+                formula: "∑ ( 產品銷售重量 x 下游配送距離 x 運輸載具延噸公里排放係數 )"
+            },
+            {
+                id: 10,
+                tab: "downstream",
+                title: "Cat 10: 已銷售產品之加工",
+                desc: "由第三方客戶對公司已銷售之中間產品（如塑料原料、半導體晶片、鋼板）進行後續加工所造成的排放。",
+                boundary: "下游加工客戶在轉換、封裝或組裝中間產品時產生的範疇一和二排放。",
+                formula: "∑ ( 出售之中間產品數量 x 下游加工階段之平均行業排放係數 )"
+            },
+            {
+                id: 11,
+                tab: "downstream",
+                title: "Cat 11: 已銷售產品之使用",
+                desc: "終端用戶在使用公司產品期間因消耗能源或本身含有溫室氣體釋放所產生的總壽命排放量。",
+                boundary: "產品預期使用壽命內之直接排放（如燃料燃燒）或消耗電力/燃料所導致的範疇一和二排放（必須）；間接能源消耗為非必要。",
+                formula: "∑ ( 報導年售出數量 x 預期壽命 years x 每年使用之耗能 kWh/L x 發電/燃料排放係數 )"
+            },
+            {
+                id: 12,
+                tab: "downstream",
+                title: "Cat 12: 已銷售產品生命週期末處理",
+                desc: "已銷售產品及包裝在使用壽命結束後進行廢棄處置與垃圾處置（如掩埋、焚化、回收）所產生的預期排放。",
+                boundary: "產品廢物回收或焚化處理期產生的排放。",
+                formula: "∑ ( 售出產品加包裝總重量 x 各報廢處理方式之行業平均廢棄排放係數 )"
+            },
+            {
+                id: 13,
+                tab: "downstream",
+                title: "Cat 13: 下游租賃資產",
+                desc: "公司（作為出租人）擁有並租賃給其他主體之資產的營運排放，尚未納入公司的範疇一和二報告者。",
+                boundary: "承租人在租賃資產內使用能源引起的排放。",
+                formula: "∑ ( 出租資產面積/數量 x 承租人實際耗電 x 排放係數 )"
+            },
+            {
+                id: 14,
+                tab: "downstream",
+                title: "Cat 14: 特許經營/加盟",
+                desc: "由公司授權之加盟店、連鎖經營店在營運期間所產生的排放，未納入報導公司範疇一及範疇二者。",
+                boundary: "加盟商在店鋪營運時產生的範疇一和二排放。",
+                formula: "∑ ( 加盟店數量 x 單店平均年度耗能 x 電力/燃料排放係數 )"
+            },
+            {
+                id: 15,
+                tab: "downstream",
+                title: "Cat 15: 投資",
+                desc: "公司（主要是投資人與金融機構）於報導年度內進行之股權、債權投資 or 專案融資所引致的資產組合排放。",
+                boundary: "被投資方或融資專案的範疇一及範疇二排放（按投資份額比例分配）；若顯著亦應包括被投資方的範疇三。",
+                formula: "∑ ( (投資金額 / 被投資企業之企業價值 EVIC) x 被投資公司年度 Scope 1 & 2 排放總量 )"
+            }
+        ];
+
+        // 附錄 1.1 至 1.17 統計資料
+        const industryScope3Data = {
+            agriculture: {
+                name: "1.1 大宗農產品",
+                source: "附錄 1.1",
+                ranks: [
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 69.00 },
+                    { id: 10, name: "類別 10: 已銷售產品之加工", pct: 17.00 },
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 14.00 }
+                ],
+                desc: "大宗農產品之價值鏈排放極其顯著，主要集中在<strong>類別 1 購買之商品及勞務 (上游飼料/化肥生產)</strong>，佔比達 69.00%。已售產品加工與使用同樣重要。"
+            },
+            capital_goods: {
+                name: "1.2 資本財",
+                source: "附錄 1.2",
+                ranks: [
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 91.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 5.70 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 3.30 }
+                ],
+                desc: "資本財（如重型機具、發電設備）之範疇三排放主要源自其<strong>使用階段能耗 (類別 11)</strong>，佔比達 91.00%，而採購原料之隱含碳僅佔 5.70%。"
+            },
+            cement: {
+                name: "1.3 水泥業",
+                source: "附錄 1.3",
+                ranks: [
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 39.00 },
+                    { id: 4, name: "類別 4: 上游運輸及配送", pct: 30.00 },
+                    { id: 9, name: "類別 9: 下游運輸及配送", pct: 20.00 },
+                    { id: 3, name: "類別 3: 燃料與能源相關活動", pct: 10.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 1.00 }
+                ],
+                desc: "水泥業雖主要碳排位於範疇一、二，但其範疇三主要由<strong>類別 1 購買商品</strong>與<strong>類別 4 / 類別 9 物流運輸</strong>支配，合計佔比高達 89.00%。"
+            },
+            chemistry: {
+                name: "1.4 化學業",
+                source: "附錄 1.4",
+                ranks: [
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 58.00 },
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 19.00 },
+                    { id: 12, name: "類別 12: 已銷售產品生命週期末處理", pct: 10.00 },
+                    { id: 4, name: "類別 4: 上游運輸及配送", pct: 6.00 },
+                    { id: 3, name: "類別 3: 燃料與能源相關活動", pct: 4.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 3.00 }
+                ],
+                desc: "化學業銷售之產品多為中間原料，除了上游原料採購（類別 1 佔 58.00%）之外，其產品之生命終期處理（類別 12）與直接使用階段能耗也是主要關鍵。"
+            },
+            coal: {
+                name: "1.5 煤炭業",
+                source: "附錄 1.5",
+                ranks: [
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 98.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 2.00 }
+                ],
+                desc: "煤炭業之範疇三排放極度單一，高達 98.00% 的排放完全源自下游客戶燃燒煤炭所釋放之溫室氣體（<strong>類別 11 已銷售產品之使用</strong>）。"
+            },
+            construction: {
+                name: "1.6 營建業",
+                source: "附錄 1.6",
+                ranks: [
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 53.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 32.00 },
+                    { id: 2, name: "類別 2: 資本財", pct: 8.00 },
+                    { id: 3, name: "類別 3: 燃料與能源相關活動", pct: 4.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 3.00 }
+                ],
+                desc: "營建業之盤查須分開發建與承包。建案營運能耗（類別 11 佔 53.00%）與採購鋼筋、水泥等隱含碳（類別 1 佔 32.00%）為兩大絕對性熱點。"
+            },
+            utility: {
+                name: "1.7 電力公用事業",
+                source: "附錄 1.7",
+                ranks: [
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 41.00 },
+                    { id: 3, name: "類別 3: 燃料與能源相關活動", pct: 39.00 },
+                    { id: 15, name: "類別 15: 投資", pct: 9.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 6.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 5.00 }
+                ],
+                desc: "電力公用事業若有天然氣零售，銷售端燃燒（類別 11 佔 41.00%）與上游燃料開採及線損（類別 3 佔 39.00%）構成範疇三主體。"
+            },
+            finance: {
+                name: "1.8 金融服務業",
+                source: "附錄 1.8",
+                ranks: [
+                    { id: 15, name: "類別 15: 投資", pct: 99.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 1.00 }
+                ],
+                desc: "金融機構自身之碳排放（範疇一、二）微不足道，高達 99.00% 以上之絕對排放完全源自其投融資組合（<strong>類別 15 投資</strong>），必須遵循 PCAF 準則進行確信。"
+            },
+            food_beverage: {
+                name: "1.9 食品、飲料與菸草業",
+                source: "附錄 1.9",
+                ranks: [
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 77.00 },
+                    { id: 4, name: "類別 4: 上游運輸及配送", pct: 12.00 },
+                    { id: 9, name: "類別 9: 下游運輸及配送", pct: 9.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 2.00 }
+                ],
+                desc: "食品飲料加工業因包含農牧與土地利用改變之隱含碳，<strong>類別 1 原料採購</strong>佔比達 77.00% 的絕對主導地位，供應與分銷物流次之。"
+            },
+            metals_mining: {
+                name: "1.10 金屬與礦業",
+                source: "附錄 1.10",
+                ranks: [
+                    { id: 10, name: "類別 10: 已銷售產品之加工", pct: 43.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 35.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 22.00 }
+                ],
+                desc: "金屬開採業主要碳排放來自下游之加工與提煉（類別 10 佔 43.00%），而上游原物料與外包開發（類別 1）則佔 35.00%。"
+            },
+            oil_gas: {
+                name: "1.11 石油與天然氣業",
+                source: "附錄 1.11",
+                ranks: [
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 91.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 4.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 5.00 }
+                ],
+                desc: "石化燃料產業的範疇三無疑由下游客戶燃燒汽柴油、天然氣（<strong>類別 11 產品之使用</strong>）支配，佔比高達 91.00%。"
+            },
+            paper_forestry: {
+                name: "1.12 造紙業與林業",
+                source: "附錄 1.12",
+                ranks: [
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 35.00 },
+                    { id: 12, name: "類別 12: 已銷售產品生命週期末處理", pct: 19.00 },
+                    { id: 10, name: "類別 10: 已銷售產品之加工", pct: 15.00 },
+                    { id: 4, name: "類別 4: 上游運輸及配送", pct: 8.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 23.00 }
+                ],
+                desc: "造紙造林業之範疇三多樣，包含伐木施肥等原料（類別 1 佔 35.00%）與產品使用壽命終了（類別 12 佔 19.00%）及加工能耗。"
+            },
+            real_estate: {
+                name: "1.13 不動產業",
+                source: "附錄 1.13",
+                ranks: [
+                    { id: 2, name: "類別 2: 資本財", pct: 52.00 },
+                    { id: 13, name: "類別 13: 下游租賃資產", pct: 27.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 10.50 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 10.50 }
+                ],
+                desc: "不動產業以資本財建構之隱含碳（類別 2 佔 52.00%）以及租賃給承租戶之電力能源（類別 13 佔 27.00%）為兩大主要熱點。"
+            },
+            steel: {
+                name: "1.14 鋼鐵業",
+                source: "附錄 1.14",
+                ranks: [
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 30.00 },
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 29.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 41.00 }
+                ],
+                desc: "鋼鐵業範疇三高度聚焦於<strong>類別 1 (採購鐵礦、冶金焦煤)</strong> 佔 30.00%，與下游鋼材製造與使用能耗（類別 11 佔 29.00%）。"
+            },
+            transport_manufacturing: {
+                name: "1.15 運輸製造業",
+                source: "附錄 1.15",
+                ranks: [
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 86.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 11.20 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 2.80 }
+                ],
+                desc: "造船造車等運輸製造廠，其售出之卡車、飛機在其生命週期燃燒石化燃料（<strong>類別 11 產品之使用</strong>）佔比高達 86.00%，為核心減量議合目標。"
+            },
+            transport_services: {
+                name: "1.16 運輸服務業",
+                source: "附錄 1.16",
+                ranks: [
+                    { id: 4, name: "類別 4: 上游運輸及配送", pct: 32.00 },
+                    { id: 3, name: "類別 3: 燃料與能源相關活動", pct: 24.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 18.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 26.00 }
+                ],
+                desc: "物流服務業之範疇三以進出貨物流運輸（類別 4 佔 32.00%）與採購燃料/電力之上游損失開採（類別 3 佔 24.00%）為兩大熱點。"
+            },
+            electrical_electronics: {
+                name: "1.17 電子電機製造業",
+                source: "附錄 1.17",
+                ranks: [
+                    { id: 11, name: "類別 11: 已銷售產品之使用", pct: 59.00 },
+                    { id: 1, name: "類別 1: 購買之商品及勞務", pct: 35.00 },
+                    { id: 2, name: "類別 2: 資本財", pct: 25.00 },
+                    { id: 3, name: "類別 3: 燃料與能源相關活動", pct: 20.00 },
+                    { id: 9, name: "類別 9: 下游運輸及配送", pct: 8.00 },
+                    { id: 4, name: "類別 4: 上游運輸及配送", pct: 5.00 },
+                    { id: 0, name: "其他範疇三類別累積", pct: 3.00 }
+                ],
+                desc: "依指引附錄 1.17，電子電機業（半導體、電腦週邊等）之使用能耗（<strong>類別 11</strong> 佔 59.00%）與晶圓/零組件採購（<strong>類別 1</strong> 佔 35.00%）為兩大指定熱點。"
+            }
+        };
+
+        let currentExplorerTab = 'upstream';
+        let currentFilterIndustry = 'none';
+
+        function switchExplorerTab(tab) {
+            currentExplorerTab = tab;
+            document.getElementById('tab-upstream').className = tab === 'upstream' 
+                ? "flex-1 text-center py-3 rounded-xl text-sm font-extrabold transition-all bg-white text-slate-900 shadow-sm"
+                : "flex-1 text-center py-3 rounded-xl text-sm font-extrabold transition-all text-slate-600 hover:text-slate-900";
+            
+            document.getElementById('tab-downstream').className = tab === 'downstream'
+                ? "flex-1 text-center py-3 rounded-xl text-sm font-extrabold transition-all bg-white text-slate-900 shadow-sm"
+                : "flex-1 text-center py-3 rounded-xl text-sm font-extrabold transition-all text-slate-600 hover:text-slate-900";
+
+            renderExplorerCards();
+        }
+
+        // 依據附錄 1.1 至 1.17 佔比動態生成篩選圖表
+        function filterIndustryCriticality() {
+            const select = document.getElementById('industry-select');
+            currentFilterIndustry = select.value;
+            
+            const tag = document.getElementById('industry-crit-tag');
+            if (currentFilterIndustry === 'none') {
+                tag.classList.add('hidden');
+            } else {
+                tag.classList.remove('hidden');
+                const data = industryScope3Data[currentFilterIndustry];
+                
+                let chartHtml = `
+                    <div class="w-full text-slate-800 space-y-4 font-sans animate-fadeIn">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200 pb-2 gap-2">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">指引附錄 ${data.source} 權威數據</span>
+                                <h4 class="text-lg font-black text-forest-800 flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-chart-simple text-sm text-forest-800"></i>
+                                    ${data.name} — 範疇 3 排放主要類別排序
+                                </h4>
+                            </div>
+                            <span class="px-3 py-1 bg-forest-800 text-white rounded-full text-xs font-bold whitespace-nowrap shadow-sm">佔比依序排列</span>
+                        </div>
+                        
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">${data.desc}</p>
+                        
+                        <div class="space-y-3 pt-2">
+                            ${data.ranks.map((rank, index) => {
+                                const barColor = index === 0 ? 'bg-forest-800' : index === 1 ? 'bg-forest-600' : 'bg-slate-400';
+                                const labelWeight = index < 2 ? 'font-bold text-slate-900' : 'font-light text-slate-600';
+                                const isOther = rank.id === 0;
+                                const badge = isOther ? '' : `<span class="bg-slate-100 text-slate-800 text-[9px] font-bold px-1.5 py-0.5 rounded mr-1">Cat ${rank.id}</span>`;
+                                
+                                return `
+                                    <div class="space-y-1">
+                                        <div class="flex justify-between items-center text-[11px] sm:text-xs">
+                                            <div class="flex items-center truncate ${labelWeight}">
+                                                ${badge}
+                                                <span class="truncate">${rank.name}</span>
+                                            </div>
+                                            <span class="font-extrabold text-forest-800 whitespace-nowrap ml-2">${rank.pct.toFixed(2)}%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 h-2 sm:h-2.5 rounded-full overflow-hidden">
+                                            <div class="${barColor} h-full rounded-full transition-all duration-1000" style="width: ${rank.pct}%"></div>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                        <div class="text-[10px] text-slate-400 font-light flex items-center justify-end">
+                            <span>來源：金管會 2025年6月二版《範疇3溫室氣體盤查作業參考指引》附錄一統計表</span>
+                        </div>
+                    </div>
+                `;
+                tag.innerHTML = chartHtml;
+            }
+
+            renderExplorerCards();
+        }
+
+        function renderExplorerCards() {
+            const container = document.getElementById('explorer-grid');
+            const filtered = scope3Categories.filter(cat => cat.tab === currentExplorerTab);
+            
+            let html = '';
+            filtered.forEach(cat => {
+                let criticalBadge = '';
+                let highlightClass = 'border-slate-100 bg-white';
+                
+                if (currentFilterIndustry !== 'none') {
+                    const data = industryScope3Data[currentFilterIndustry];
+                    const matchedRank = data.ranks.find(r => r.id === cat.id);
+                    
+                    if (matchedRank) {
+                        const rankIndex = data.ranks.indexOf(matchedRank);
+                        // 前二大主要佔比進行高能見度紅框與亮牌標記
+                        if (rankIndex < 2) {
+                            criticalBadge = `<span class="bg-red-50 text-red-700 border border-red-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>主要佔比 (${matchedRank.pct}%)</span>`;
+                            highlightClass = 'border-red-200 bg-red-50/10 shadow-md shadow-red-500/5 scale-[1.01]';
+                        } else {
+                            criticalBadge = `<span class="bg-slate-50 text-slate-500 text-[10px] font-medium px-2 py-0.5 rounded-full">相關佔比 (${matchedRank.pct}%)</span>`;
+                        }
+                    } else {
+                        criticalBadge = `<span class="bg-slate-50 text-slate-500 text-[10px] font-medium px-2 py-0.5 rounded-full">微量佔比 (<0.5%)</span>`;
+                    }
+                }
+
+                html += `
+                    <div class="rounded-3xl p-6 shadow-sm border transition-all hover:shadow-md ${highlightClass}">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-forest-50 text-forest-800 text-xs font-bold px-3 py-1 rounded-full">Category ${cat.id}</span>
+                            ${criticalBadge}
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">${cat.title}</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4 line-clamp-3 font-light">${cat.desc}</p>
+                        
+                        <div class="space-y-3 pt-3 border-t border-slate-100">
+                            <div>
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">最小盤查邊界</h4>
+                                <p class="text-[11px] text-slate-500 line-clamp-2 font-light">${cat.boundary}</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">推薦量化公式</h4>
+                                <code class="text-[11px] text-forest-800 bg-forest-50 px-2 py-0.5 rounded font-mono block truncate">${cat.formula}</code>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        const faqData = [
+            {
+                q: "如何選擇設定組織邊界的方法？",
+                a: "企業應先從盤查目的考量。若無法律特別規定，(1)權益份額法最能反映商業與經濟真實負債風險，與財務會計合併報表接軌良好；(2)營運控制法則對於收集供應鏈資料與行政成本控制最具優勢，也是台灣多數上市櫃公司首選。決定後必須一貫性適用，不可混用。"
+            },
+            {
+                q: "針對合併報表子公司數量龐大(超過百家)的企業，如何有效進行範疇三盤查？",
+                a: "不需要一家一家子公司個別詳細計算。實務上應從母公司合併財務報表中「營業收入」與「主要成本支出」的來源著手，找出主要的產品與原料價值鏈，並將這些高影響力的活動與其對應之一階供應商列為優先盤查對象（如佔採購額 80% 的主要供應商），其餘使用次級支出基礎法或平均資料法進行估算。"
+            },
+            {
+                q: "對於投資類別(Category 15)，針對無營運控制權的關聯企業與合資公司是否可以排除揭露？",
+                a: "不可以排除。範疇三 Category 15 的盤查範圍取決於企業採用的組織邊界法。若企業使用「控制法」，則那些無營運控制權但企業擁有股權的關聯企業或合資公司，雖然不計入範疇一二，但其範疇一二排放乘以企業持股比例的歸因碳排，必須計入範疇三投資類別（Category 15）中。"
+            },
+            {
+                q: "員工通勤和商務差旅的數據收集涉及個人隱私（個資法）問題，如何合規盤查？",
+                a: "不應收集或揭露個別員工的具體地址或差旅軌跡。實務上，員工通勤（Cat 7）採用「匿名問卷調查法」，設計分段距離區間（如開車通勤每日單程 10-20 公里），統計後計算總體排放；商務差旅（Cat 6）可由差旅社或人事費用申報系統提供總搭乘里程/金額數據直接彙總，此做法完全符合個資法要求。"
+            },
+            {
+                q: "當同一價值鏈中有重疊供應商時，如何避免重複計算問題？",
+                a: "如果同一家供應商同時向您提供上游運輸（Cat 4）或加工服務（Cat 10），GHG Protocol 設有「費用支付方」防重原則。即完全以「合約與發票由誰支付費用」來決定。如果是報導公司支付，歸入 Cat 4 進貨物流；由買方支付歸入 Cat 9，這能確保範疇三內無重複計算之虞。"
+            }
+        ];
+
+        function renderFaqs(filterText = '') {
+            const container = document.getElementById('faq-container');
+            const filtered = faqData.filter(faq => 
+                faq.q.includes(filterText) || faq.a.includes(filterText)
+            );
+
+            let html = '';
+            filtered.forEach((faq, index) => {
+                html += `
+                    <div class="bg-white rounded-2xl border border-slate-200/60 overflow-hidden shadow-sm">
+                        <button onclick="toggleFaq(${index})" class="w-full text-left px-5 py-4 font-bold text-slate-800 hover:text-forest-800 transition-colors flex items-center justify-between">
+                            <span class="pr-4 text-sm sm:text-base">${faq.q}</span>
+                            <i id="faq-icon-${index}" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-${index}" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3 bg-slate-50/50 font-light">
+                            ${faq.a}
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html || '<p class="text-slate-400 text-sm py-4">無符合的常見問答...</p>';
+        }
+
+        function toggleFaq(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function searchFaq() {
+            const val = document.getElementById('faq-search').value;
+            renderFaqs(val);
+        }
+
+        // 懸浮 Toast 提示系統 (完全替代原生 alert)
+        function showToast(message, type = 'success') {
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none';
+                document.body.appendChild(container);
+            }
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 transform transition-all duration-300 translate-y-10 opacity-0 border border-slate-800 text-sm';
+            const icon = type === 'success' ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>' : '<i class="fa-solid fa-circle-exclamation text-amber-400"></i>';
+            toast.innerHTML = `${icon}<span>${message}</span>`;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 10);
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        let submittedData = {};
+
+        // 報名與錨點平滑滾動 UX 最佳化
+        function enrollCourse(courseNum) {
+            const formService = document.getElementById('form-service');
+            const formMsg = document.getElementById('form-message');
+            
+            formService.value = 'course_all';
+            formMsg.value = `您好，我想預約報名《GHG_Scope3_講義_完整六堂課.pdf》第 ${courseNum} 堂課實戰培訓。請提供包班與團體優惠報價。`;
+            
+            scrollToSection('contact');
+        }
+
+        function selectInquiryType(type) {
+            const formMsg = document.getElementById('form-message');
+            formMsg.value = `您好，我代表我們公司諮詢「${type}」服務。希望了解符合金管會最新第二版指引的顧問輔導、查驗前置審核與實戰訓練預約事宜。`;
+            
+            scrollToSection('contact');
+        }
+
+        // 填寫送出諮詢：自動生成 網頁版 Gmail、原生 Mail 兩大協定與一鍵複製
+        function submitInquiry(event) {
+            event.preventDefault();
+            
+            const company = document.getElementById('form-company').value;
+            const taxid = document.getElementById('form-taxid').value || "無";
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const email = document.getElementById('form-email').value;
+            const status = document.getElementById('form-status').options[document.getElementById('form-status').selectedIndex].text;
+            const service = document.getElementById('form-service').options[document.getElementById('form-service').selectedIndex].text;
+            const message = document.getElementById('form-message').value;
+
+            submittedData = { company, taxid, name, phone, email, status, service, message };
+
+            // 格式化郵件內文
+            const subjectText = `【穩碳永續諮詢】${company} - ${name} 的服務諮詢與報名`;
+            const bodyText = `您好，我們想諮詢以下永續轉換服務：
+
+【諮詢企業聯絡資訊】
+■ 公司名稱：${company}
+■ 統一編號：${taxid}
+■ 聯絡人姓名：${name}
+■ 聯絡人電話：${phone}
+■ 電子郵件信箱：${email}
+
+【永續現況與需求】
+■ 企業現有盤查狀態：${status}
+■ 諮詢的服務類型：${service}
+
+【詳細諮詢與備註說明】
+${message || '無特定備註說明'}
+
+---
+本信件由《穩碳管理顧問官網》招生系統自動整理。`;
+
+            // 設定成功 Modal 中手動複製區塊的實際值
+            document.getElementById('modal-mail-subject').value = subjectText;
+            document.getElementById('modal-mail-body').value = bodyText;
+
+            const encodedSubject = encodeURIComponent(subjectText);
+            const encodedBody = encodeURIComponent(bodyText);
+
+            // [通道一] 網頁版 Gmail 一鍵跳轉 (這可以完美避免 Sandbox / 原生 App 沒裝的阻擋)
+            const webGmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=envitec.chen@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
+            document.getElementById('btn-web-gmail').href = webGmailUrl;
+
+            // [通道二] 傳統原生協定
+            const mailtoUrl = `mailto:envitec.chen@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+            document.getElementById('btn-send-email').href = mailtoUrl;
+
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('inquiry-form').reset();
+        }
+
+        // 高反饋手動複製函數
+        function copyFeedbackText(textToCopy, buttonElement) {
+            const originalHTML = buttonElement.innerHTML;
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    triggerButtonSuccess(buttonElement, originalHTML);
+                }).catch(err => {
+                    fallbackCopy(textToCopy, buttonElement, originalHTML);
+                });
+            } else {
+                fallbackCopy(textToCopy, buttonElement, originalHTML);
+            }
+        }
+
+        function triggerButtonSuccess(btn, originalHTML) {
+            btn.className = "bg-emerald-600 text-white font-bold py-1.5 px-3 rounded-lg text-[11px] transition-all flex items-center space-x-1 whitespace-nowrap scale-[1.02]";
+            btn.innerHTML = `<i class="fa-solid fa-check"></i> <span>已複製！ ✓</span>`;
+            showToast("複製成功！請至 Gmail 或郵件軟體內進行貼上寄出。", "success");
+            
+            setTimeout(() => {
+                btn.className = "bg-slate-800 hover:bg-slate-900 text-white font-bold py-1.5 px-3 rounded-lg text-[11px] transition-all flex items-center space-x-1 whitespace-nowrap";
+                btn.innerHTML = originalHTML;
+            }, 2500);
+        }
+
+        function fallbackCopy(text, btn, originalHTML) {
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = text;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            try {
+                document.execCommand('copy');
+                triggerButtonSuccess(btn, originalHTML);
+            } catch (err) {
+                console.error('無法複製', err);
+                showToast("複製失敗，請手動選取文字進行複製。", "error");
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        window.onload = function () {
+            selectIsoCategory('cat1');
+            switchExplorerTab('upstream');
+            renderFaqs();
+        };
+    </script>
+</body>
+</html>
